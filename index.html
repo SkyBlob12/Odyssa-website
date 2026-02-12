@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="styles.css">
   <link rel="preload" as="image" href="assets/hero-bg.jpg">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png" id="favicon">
   <link rel="canonical" href="https://odyssa-app.com/">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -278,6 +278,34 @@
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Adaptive favicon: dark logo on light theme, white logo on dark theme
+    (function() {
+      const favicon = document.getElementById('favicon');
+      const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function updateFavicon(isDark) {
+        if (isDark) {
+          favicon.href = 'favicon.png';
+          return;
+        }
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext('2d');
+          ctx.filter = 'invert(1)';
+          ctx.drawImage(img, 0, 0);
+          favicon.href = canvas.toDataURL('image/png');
+        };
+        img.src = 'favicon.png';
+      }
+
+      updateFavicon(darkQuery.matches);
+      darkQuery.addEventListener('change', (e) => updateFavicon(e.matches));
+    })();
   </script>
 
 </body>
