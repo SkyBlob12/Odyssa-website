@@ -195,7 +195,7 @@ img {
   align-items: center;
   background-image:
     linear-gradient(160deg, rgba(15, 23, 42, 0.55) 0%, rgba(30, 10, 60, 0.45) 50%, rgba(15, 23, 42, 0.6) 100%),
-    url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1920&q=80');
+    url('assets/hero-bg.jpg');
   background-size: cover;
   background-position: center;
   color: white;
@@ -527,8 +527,112 @@ img {
 
 
 /* ========================================
+   STEPS SECTION — Comment ça marche
+   ======================================== */
+
+.steps-section {
+  padding: var(--sp-20) var(--sp-6);
+  background: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .steps-section {
+    padding: var(--sp-24) var(--sp-10);
+  }
+}
+
+.steps-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.steps-container h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  margin-bottom: var(--sp-3);
+  letter-spacing: -0.04em;
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .steps-container h2 {
+    font-size: var(--text-4xl);
+  }
+}
+
+.steps-subtitle {
+  color: var(--color-text-secondary);
+  font-size: var(--text-lg);
+  margin-bottom: var(--sp-16);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-8);
+}
+
+@media (min-width: 768px) {
+  .steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+  }
+}
+
+.step-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--sp-2);
+}
+
+.step-icon-1 { background: linear-gradient(135deg, #DBEAFE, #BFDBFE); color: #2563EB; }
+.step-icon-2 { background: linear-gradient(135deg, #E0E7FF, #C7D2FE); color: #4338CA; }
+.step-icon-3 { background: linear-gradient(135deg, #CFFAFE, #A5F3FC); color: #0891B2; }
+
+.step-card h3 {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.step-card p {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+/* ========================================
    ABOUT / CTA SECTION
    ======================================== */
+
+.about-cta {
+  display: flex;
+  gap: var(--sp-4);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-store-disabled {
+  opacity: 0.45;
+  cursor: default;
+  pointer-events: none;
+}
 
 .about-section {
   padding: var(--sp-20) var(--sp-6);
@@ -585,10 +689,6 @@ img {
   color: var(--color-text-secondary);
   line-height: 1.75;
   margin-bottom: var(--sp-10);
-}
-
-.about-cta {
-  margin-top: var(--sp-2);
 }
 
 .btn-primary {
