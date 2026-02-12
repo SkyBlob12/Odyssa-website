@@ -116,6 +116,20 @@ img {
   display: block;
 }
 
+/* Focus visible — accessibilité clavier */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn-store:focus-visible,
+.btn-primary:focus-visible,
+.btn-modern:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
 /* ========================================
    FLOATING LOGO — Hero overlay
    ======================================== */

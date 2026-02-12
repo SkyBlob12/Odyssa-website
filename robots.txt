@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://odyssa-app.com/sitemap.xml
