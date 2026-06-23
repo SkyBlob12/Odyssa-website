@@ -1,8 +1,14 @@
 import { log } from './util.mjs';
 
 const MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
-const ENDPOINT = (key) =>
-  `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${key}`;
+// Modèles essayés dans l'ordre : le principal, puis des replis si surcharge (503).
+const MODELS = [...new Set([MODEL, 'gemini-2.5-flash', 'gemini-2.0-flash'])];
+const ENDPOINT = (model, key) =>
+  `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`;
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+// Codes transitoires qui méritent un nouvel essai.
+const RETRYABLE = new Set([429, 500, 502, 503, 504]);
 
 const BRAND = `
 Tu écris pour le blog d'Odyssa, une application de planification de voyage.
@@ -12,29 +18,55 @@ zéro remplissage, zéro formule creuse, aucun emoji ; n'invente pas de faits in
 `;
 
 async function callGemini(prompt, schema, key, temperature = 0.85) {
-  const body = {
+  const body = JSON.stringify({
     contents: [{ parts: [{ text: prompt }] }],
     generationConfig: {
       temperature,
       responseMimeType: 'application/json',
       responseSchema: schema,
     },
-  };
-  const res = await fetch(ENDPOINT(key), {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
   });
-  if (!res.ok) throw new Error(`Gemini ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!text) throw new Error('Réponse Gemini vide');
-  try {
-    return JSON.parse(text);
-  } catch {
-    // garde-fou : retire d'éventuelles balises de code
-    return JSON.parse(text.replace(/^```json\s*|\s*```$/g, ''));
+
+  const MAX_ATTEMPTS = 4; // par modèle
+  let lastErr;
+  for (const model of MODELS) {
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+      let res;
+      try {
+        res = await fetch(ENDPOINT(model, key), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body,
+        });
+      } catch (e) {
+        // erreur réseau → on retente
+        lastErr = e;
+        await sleep(attempt * 2000);
+        continue;
+      }
+
+      if (res.ok) {
+        const data = await res.json();
+        const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (!text) throw new Error('Réponse Gemini vide');
+        try {
+          return JSON.parse(text);
+        } catch {
+          return JSON.parse(text.replace(/^```json\s*|\s*```$/g, ''));
+        }
+      }
+
+      const detail = await res.text();
+      lastErr = new Error(`Gemini ${res.status} (${model}): ${detail}`);
+      if (!RETRYABLE.has(res.status)) throw lastErr; // erreur définitive (clé invalide, etc.)
+
+      const wait = attempt * 3000; // 3s, 6s, 9s…
+      log(`Gemini ${res.status} sur ${model} — nouvel essai ${attempt}/${MAX_ATTEMPTS} dans ${wait / 1000}s`);
+      await sleep(wait);
+    }
+    log(`Modèle ${model} indisponible après ${MAX_ATTEMPTS} essais — repli sur le suivant si disponible.`);
   }
+  throw lastErr || new Error('Gemini : échec après tous les essais');
 }
 
 const S = {

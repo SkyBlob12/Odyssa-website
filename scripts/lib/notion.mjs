@@ -24,6 +24,16 @@ function norm(s) {
     .trim();
 }
 
+const MONTHS = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'];
+
+/** Indice du mois le plus tôt mentionné dans une chaîne (0=janvier). 99 si aucun. */
+function monthIndex(s) {
+  const n = norm(s);
+  let best = 99;
+  MONTHS.forEach((m, i) => { if (n.includes(m)) best = Math.min(best, i); });
+  return best;
+}
+
 /** Lit une valeur texte depuis une propriété Notion, quel que soit son type. */
 function readPlain(prop) {
   if (!prop) return '';
@@ -79,6 +89,9 @@ export async function fetchDestinationsToPublish(token, dbId) {
       statusType: statusProp?.type || 'select',
     });
   }
+  // Tri par mois chronologique (le plus tôt en premier) ; à mois égal, on garde
+  // l'ordre Notion (création ascendante). Tri stable garanti par Array.sort.
+  out.sort((a, b) => monthIndex(a.month) - monthIndex(b.month));
   log(`Notion : ${out.length} destination(s) à publier`);
   return out;
 }
