@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "slug": "maroc",
+    "title": "Maroc : L'appel vibrant des mille et une nuits en Mai",
+    "country": "Maroc",
+    "tag": "Maroc",
+    "excerpt": "Le Maroc en mai, c'est l'équilibre parfait : un soleil généreux sans les chaleurs extrêmes, des paysages vibrants et une culture accueillante.",
+    "readingTime": "9 min de lecture",
+    "cover": "assets/blog/destinations/maroc/cover.webp",
+    "date": "2026-06-23"
+  }
+]
