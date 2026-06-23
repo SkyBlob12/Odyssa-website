@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "organiser-voyage-entre-amis",
+    "title": "Comment organiser un voyage entre amis sans se prendre la tête",
+    "tag": "Organisation",
+    "tagClass": "",
+    "excerpt": "Itinéraire, budget, remboursements… Voici toutes les étapes pour planifier un voyage en groupe sereinement.",
+    "readingTime": "5 min de lecture",
+    "date": "2026-03-27"
+  },
+  {
+    "slug": "checklist-voyage-famille",
+    "title": "Checklist voyage en famille : ne rien oublier avant de partir",
+    "tag": "Famille",
+    "tagClass": "blog-card-tag--green",
+    "excerpt": "Documents, médicaments, divertissements pour les enfants… La liste complète pour partir l'esprit tranquille.",
+    "readingTime": "4 min de lecture",
+    "date": "2026-03-27"
+  }
+]

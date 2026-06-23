@@ -1,0 +1,185 @@
+{
+  "_comment": "Backlog de sujets pour les articles 'Conseils & guides'. Le script pioche les sujets 'used:false' du haut vers le bas. Quand il reste moins de 6 sujets disponibles, Gemini en propose de nouveaux (ajoutés ici, used:false, à relire si besoin). Tu peux ajouter/réordonner/supprimer librement.",
+  "topics": [
+    {
+      "title": "Comment préparer un city-trip en Europe en un week-end",
+      "tag": "Organisation",
+      "angle": "Méthode pas-à-pas pour optimiser 2-3 jours dans une ville européenne.",
+      "used": false
+    },
+    {
+      "title": "10 astuces pour voyager moins cher sans se priver",
+      "tag": "Budget",
+      "angle": "Vols, hébergement, repas, activités : leviers concrets pour réduire la note.",
+      "used": false
+    },
+    {
+      "title": "Bagage cabine uniquement : la méthode pour tout faire tenir",
+      "tag": "Astuces",
+      "angle": "Liste optimisée, techniques de pliage, règles compagnies aériennes.",
+      "used": false
+    },
+    {
+      "title": "Voyager seul pour la première fois : guide pour se lancer",
+      "tag": "Inspiration",
+      "angle": "Sécurité, rencontres, gestion du budget et de la solitude.",
+      "used": false
+    },
+    {
+      "title": "Comment trouver des billets d'avion au meilleur prix",
+      "tag": "Budget",
+      "angle": "Comparateurs, alertes prix, jours et périodes idéales, vols avec escale.",
+      "used": false
+    },
+    {
+      "title": "Décalage horaire : comment l'éviter et le gérer",
+      "tag": "Bien-être",
+      "angle": "Préparation avant, pendant et après le vol pour limiter le jetlag.",
+      "used": false
+    },
+    {
+      "title": "Assurance voyage : laquelle choisir et quand est-ce utile",
+      "tag": "Pratique",
+      "angle": "Garanties essentielles, cartes bancaires, cas concrets.",
+      "used": false
+    },
+    {
+      "title": "Voyager avec un bébé : tout ce qu'il faut anticiper",
+      "tag": "Famille",
+      "angle": "Avion, sommeil, repas, matériel et destinations adaptées.",
+      "used": false
+    },
+    {
+      "title": "Les meilleures applications pour organiser un voyage",
+      "tag": "Astuces",
+      "angle": "Cartes hors ligne, itinéraires, budget, traduction, transports.",
+      "used": false
+    },
+    {
+      "title": "Comment gérer son budget voyage en groupe",
+      "tag": "Budget",
+      "angle": "Cagnotte, partage des dépenses, remboursements, outils.",
+      "used": false
+    },
+    {
+      "title": "Road trip réussi : planifier un itinéraire en voiture",
+      "tag": "Organisation",
+      "angle": "Étapes, distances, location, applications et imprévus.",
+      "used": false
+    },
+    {
+      "title": "Que mettre dans sa trousse à pharmacie de voyage",
+      "tag": "Pratique",
+      "angle": "Liste de base et adaptations selon la destination.",
+      "used": false
+    },
+    {
+      "title": "Voyage en train en Europe : le guide de l'Interrail",
+      "tag": "Inspiration",
+      "angle": "Pass, réservations, itinéraires et bons plans.",
+      "used": false
+    },
+    {
+      "title": "Comment éviter les pièges à touristes",
+      "tag": "Astuces",
+      "angle": "Repérer les arnaques courantes et manger/visiter comme un local.",
+      "used": false
+    },
+    {
+      "title": "Voyager responsable : réduire son impact sans se compliquer",
+      "tag": "Éco-voyage",
+      "angle": "Transports, hébergements, consommation et respect des lieux.",
+      "used": false
+    },
+    {
+      "title": "Préparer un voyage longue durée ou un tour du monde",
+      "tag": "Organisation",
+      "angle": "Budget, itinéraire, administratif, sac à dos, rythme.",
+      "used": false
+    },
+    {
+      "title": "Comment rester connecté à l'étranger (eSIM, wifi, forfaits)",
+      "tag": "Pratique",
+      "angle": "Solutions data, coûts, conseils selon la zone.",
+      "used": false
+    },
+    {
+      "title": "Voyage en amoureux : idées et organisation",
+      "tag": "Inspiration",
+      "angle": "Destinations, surprises, équilibre du programme.",
+      "used": false
+    },
+    {
+      "title": "Que faire en cas de vol ou perte de papiers à l'étranger",
+      "tag": "Pratique",
+      "angle": "Réflexes, démarches consulaires, sauvegardes numériques.",
+      "used": false
+    },
+    {
+      "title": "Comment photographier ses voyages comme un pro",
+      "tag": "Astuces",
+      "angle": "Lumière, cadrage, matériel léger, organisation des photos.",
+      "used": false
+    },
+    {
+      "title": "Manger local en voyage : comment trouver les bonnes adresses",
+      "tag": "Gastronomie",
+      "angle": "Marchés, applications, signaux d'un bon resto, sécurité alimentaire.",
+      "used": false
+    },
+    {
+      "title": "Voyager hors saison : avantages et précautions",
+      "tag": "Astuces",
+      "angle": "Prix, affluence, météo et organisation.",
+      "used": false
+    },
+    {
+      "title": "Comment occuper les enfants pendant un long trajet",
+      "tag": "Famille",
+      "angle": "Jeux, écrans, snacks et pauses bien pensées.",
+      "used": false
+    },
+    {
+      "title": "Check-list avant de quitter la maison pour partir en vacances",
+      "tag": "Pratique",
+      "angle": "Sécurité, électricité, courrier, animaux, plantes.",
+      "used": false
+    },
+    {
+      "title": "Première fois en avion : tout comprendre de l'aéroport au décollage",
+      "tag": "Pratique",
+      "angle": "Enregistrement, sécurité, embarquement, conseils anti-stress.",
+      "used": false
+    },
+    {
+      "title": "Comment choisir sa destination de vacances",
+      "tag": "Inspiration",
+      "angle": "Critères selon budget, saison, envies et durée.",
+      "used": false
+    },
+    {
+      "title": "Voyager avec un animal de compagnie",
+      "tag": "Pratique",
+      "angle": "Transport, papiers, destinations et hébergements pet-friendly.",
+      "used": false
+    },
+    {
+      "title": "Les indispensables d'un week-end à la mer",
+      "tag": "Inspiration",
+      "angle": "Préparation, bagages et activités.",
+      "used": false
+    },
+    {
+      "title": "Comment bien dormir en voyage (avion, train, hôtel)",
+      "tag": "Bien-être",
+      "angle": "Accessoires, routine et astuces anti-fatigue.",
+      "used": false
+    },
+    {
+      "title": "Organiser un voyage de dernière minute sans stress",
+      "tag": "Organisation",
+      "angle": "Réservations express, flexibilité et bons plans.",
+      "used": false
+    }
+  ]
+}

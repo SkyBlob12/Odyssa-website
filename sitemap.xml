@@ -11,6 +11,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://odyssa-app.com/blog/destinations/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/destinations/lisbonne/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://odyssa-app.com/blog/organiser-voyage-entre-amis/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
