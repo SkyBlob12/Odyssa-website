@@ -10,11 +10,36 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 // Codes transitoires qui méritent un nouvel essai.
 const RETRYABLE = new Set([429, 500, 502, 503, 504]);
 
+/** Retire les tirets longs (cadratin, barre horizontale) d'une chaîne, sans toucher
+ *  aux plages chiffrées en demi-cadratin (ex. "60–90 €"). */
+function stripEmDash(str) {
+  return str
+    .replace(/\s*[—―]\s*/g, ', ')   // tiret long → virgule
+    .replace(/(?:,\s*){2,}/g, ', ') // évite les doubles virgules
+    .replace(/\s+,/g, ',')           // pas d'espace avant la virgule
+    .replace(/^[\s,]+/, '')          // pas de virgule en début de chaîne
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+/** Applique stripEmDash récursivement à toutes les chaînes d'un objet/array. */
+function sanitize(value) {
+  if (typeof value === 'string') return stripEmDash(value);
+  if (Array.isArray(value)) return value.map(sanitize);
+  if (value && typeof value === 'object') {
+    const out = {};
+    for (const [k, v] of Object.entries(value)) out[k] = sanitize(v);
+    return out;
+  }
+  return value;
+}
+
 const BRAND = `
 Tu écris pour le blog d'Odyssa, une application de planification de voyage.
 Ton : chaleureux, vivant, concret, comme un voyageur expérimenté qui partage — jamais un texte générique d'IA.
 Règles : français impeccable ; phrases variées ; détails précis et utiles (chiffres, noms de lieux, anecdotes) ;
 zéro remplissage, zéro formule creuse, aucun emoji ; n'invente pas de faits incertains.
+N'utilise JAMAIS le tiret long / cadratin (—) comme ponctuation : remplace-le par une virgule, des parenthèses, deux-points ou un point selon le sens. (Le tiret demi-cadratin reste autorisé uniquement pour les plages de chiffres ou de dates, ex. "60–90 €".)
 `;
 
 async function callGemini(prompt, schema, key, temperature = 0.85) {
@@ -50,9 +75,9 @@ async function callGemini(prompt, schema, key, temperature = 0.85) {
         const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
         if (!text) throw new Error('Réponse Gemini vide');
         try {
-          return JSON.parse(text);
+          return sanitize(JSON.parse(text));
         } catch {
-          return JSON.parse(text.replace(/^```json\s*|\s*```$/g, ''));
+          return sanitize(JSON.parse(text.replace(/^```json\s*|\s*```$/g, '')));
         }
       }
 
@@ -157,7 +182,7 @@ Structure attendue dans le JSON :
 - excerpt : accroche pour la carte du blog, ~140 caractères.
 - intro : paragraphe d'introduction immersif (3-4 phrases).
 - facts : { period (meilleure période), budget (par jour, ex "60–90 €"), duration (durée idéale), currency (monnaie) }.
-- sections : 8 à 9 sections. Chaque section a kicker ("01 — Pourquoi y aller"), heading (titre court), paragraphs (1-3 paragraphes riches), bullets (liste optionnelle), pull (citation en exergue optionnelle, une seule sur tout l'article).
+- sections : 8 à 9 sections. Chaque section a kicker ("01 · Pourquoi y aller"), heading (titre court), paragraphs (1-3 paragraphes riches), bullets (liste optionnelle), pull (citation en exergue optionnelle, une seule sur tout l'article).
   Couvre : pourquoi y aller, quand partir, les quartiers/zones, à voir & à faire, gastronomie, où dormir, budget & bons plans, se déplacer, conseils pratiques.
 - tip : le "conseil Odyssa" final, lié à l'organisation/itinéraire avec l'app (1-2 phrases).
 `;
