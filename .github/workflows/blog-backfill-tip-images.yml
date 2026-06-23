@@ -1,0 +1,52 @@
+name: Blog - backfill images conseils
+
+# Ajoute une photo de couverture aux conseils déjà publiés (sans image) et ouvre une PR.
+# Opération ponctuelle : à lancer manuellement, autant de fois que nécessaire
+# (les conseils déjà illustrés sont automatiquement ignorés).
+
+on:
+  workflow_dispatch:        # bouton "Run workflow" uniquement
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Illustrer les anciens conseils
+        run: node scripts/backfill-tip-images.mjs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          UNSPLASH_KEY: ${{ secrets.UNSPLASH_KEY }}
+
+      - name: Créer la Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: blog/backfill-tip-images-${{ github.run_id }}
+          delete-branch: true
+          title: "🖼️ Blog : couvertures pour les conseils existants"
+          commit-message: "Blog : backfill des images de conseils"
+          labels: blog-auto
+          body: |
+            Ajout d'une photo de couverture aux articles conseils déjà publiés qui n'en avaient pas.
+
+            **Avant de merger :** vérifie rapidement la pertinence des photos.
+            Merger cette PR publie les images sur le site.
+          add-paths: |
+            blog/**
+            assets/blog/**
+            data/**

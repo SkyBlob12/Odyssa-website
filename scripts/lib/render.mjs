@@ -30,6 +30,12 @@ function creditLine(a = {}) {
     : escapeHtml(a.author || 'Unsplash');
 }
 
+/** Figure de couverture d'un article conseil (vide si pas de photo). */
+export function tipCoverFigure(photo, prefix, alt) {
+  if (!photo?.cover) return '';
+  return `      <figure class="article-cover"><img src="${prefix}${photo.cover}" alt="${escapeHtml(alt)}" loading="lazy"><figcaption>${creditLine(photo.attribution)}</figcaption></figure>`;
+}
+
 function galleryBlock(photos, prefix, alt) {
   if (!photos.gallery?.length) return '';
   const fig = photos.gallery
@@ -151,10 +157,7 @@ export async function renderTip({ content, photo, tag, tagClass, slug, date, rel
   const url = `${SITE_URL}/blog/${slug}/`;
   const alt = content.titleShort || content.title;
   const ogImage = photo?.cover ? `${SITE_URL}/${photo.cover}` : `${SITE_URL}/assets/og-image.png`;
-
-  const cover = photo?.cover
-    ? `      <figure class="article-cover"><img src="${prefix}${photo.cover}" alt="${escapeHtml(alt)}" loading="lazy"><figcaption>${creditLine(photo.attribution)}</figcaption></figure>`
-    : '';
+  const cover = tipCoverFigure(photo, prefix, alt);
 
   const relatedItems = (related || []).map((r) =>
     r.type === 'destination'

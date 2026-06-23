@@ -68,6 +68,12 @@ Régénérer seulement les listings + sitemap (sans créer d'article) :
 npm run build:listings
 ```
 
+Illustrer rétroactivement les conseils déjà publiés qui n'ont pas de couverture (opération ponctuelle, idempotente : les articles déjà illustrés sont ignorés) :
+```bash
+UNSPLASH_KEY=… GEMINI_API_KEY=… npm run backfill:tip-images   # ajoute --dry-run pour tester sans clé
+```
+En CI : onglet **Actions → « Blog - backfill images conseils » → Run workflow** (ouvre une PR avec les couvertures).
+
 ## 5. Détails techniques
 
 - **Palette** : dérivée de la couleur dominante de la photo de couverture (`scripts/lib/palette.mjs`). La principale (hero/titres) varie ; l'accent moutarde, la touche rouille, le papier crème et l'encre restent constants pour garder l'identité rétro.

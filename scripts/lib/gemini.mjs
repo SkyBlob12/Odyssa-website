@@ -211,6 +211,23 @@ Structure attendue dans le JSON :
   return callGemini(prompt, TIP_SCHEMA, key);
 }
 
+const PHOTO_QUERY_SCHEMA = {
+  type: 'object',
+  properties: { photoQuery: S.str },
+  required: ['photoQuery'],
+};
+
+/** Déduit un mot-clé photo (EN) pour un sujet de conseil déjà publié (backfill). */
+export async function generatePhotoQuery({ title, tag }, key) {
+  const prompt = `${BRAND}
+Pour cet article de conseils voyage, donne 2 à 4 mots-clés EN ANGLAIS pour trouver une photo de couverture pertinente et concrète sur Unsplash (ex. "packing suitcase travel", "airport departure board"). Privilégie un sujet visuel et photographiable, pas un concept abstrait.
+Titre : "${title}"
+Catégorie : ${tag}`;
+  log(`Gemini → mot-clé photo pour "${title}"`);
+  const out = await callGemini(prompt, PHOTO_QUERY_SCHEMA, key, 0.4);
+  return out.photoQuery;
+}
+
 /** Propose de nouveaux sujets tips en évitant les doublons. */
 export async function proposeTopics({ count, existingTitles }, key) {
   const prompt = `${BRAND}
