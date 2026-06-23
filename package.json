@@ -1,0 +1,18 @@
+{
+  "name": "odyssa-blog-automation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Génération automatisée des articles du blog Odyssa (destinations + conseils) via Notion, Gemini et Unsplash.",
+  "scripts": {
+    "generate": "node scripts/generate-weekly.mjs",
+    "generate:dry": "node scripts/generate-weekly.mjs --dry-run",
+    "build:listings": "node scripts/generate-weekly.mjs --listings-only"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}

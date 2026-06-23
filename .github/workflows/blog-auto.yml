@@ -1,0 +1,56 @@
+name: Blog auto
+
+# Génère 3 articles/semaine (1 destination + 2 conseils) et ouvre une Pull Request.
+# Tu valides en 1 clic en mergeant la PR → GitHub Pages publie.
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'   # tous les lundis à 07:00 UTC
+  workflow_dispatch:        # bouton "Run workflow" pour lancer à la demande
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Générer les articles
+        run: node scripts/generate-weekly.mjs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
+          UNSPLASH_KEY: ${{ secrets.UNSPLASH_KEY }}
+
+      - name: Créer la Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: blog/auto-${{ github.run_id }}
+          delete-branch: true
+          title: "📝 Blog : nouveaux articles de la semaine"
+          commit-message: "Blog auto : articles hebdomadaires"
+          labels: blog-auto
+          body: |
+            Articles générés automatiquement (destination + conseils).
+
+            **Avant de merger :** relis rapidement le contenu et les photos.
+            Merger cette PR publie les articles sur le site.
+          add-paths: |
+            blog/**
+            assets/blog/**
+            data/**
+            sitemap.xml
