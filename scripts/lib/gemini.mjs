@@ -109,10 +109,11 @@ const TOPICS_SCHEMA = {
 };
 
 /** Génère le contenu d'une fiche destination. */
-export async function generateDestination({ name, country, angle }, key) {
+export async function generateDestination({ name, country, angle, month }, key) {
   const prompt = `${BRAND}
 Rédige un guide de voyage LONG (1200 à 1500 mots) sur la destination : "${name}"${country ? `, ${country}` : ''}.
 ${angle ? `Angle / notes personnelles à intégrer : ${angle}` : ''}
+${month ? `MOIS DE RÉFÉRENCE : ${month}. Ancre concrètement le guide sur cette période : météo et températures typiques en ${month}, ambiance et affluence, événements/fêtes du moment, ce qui est ouvert ou de saison, vêtements à prévoir. La section "quand partir" doit expliciter pourquoi ${month} (avantages/limites), et plusieurs autres sections doivent refléter naturellement cette saison. Le champ facts.period doit cohérer avec ${month}.` : ''}
 
 Structure attendue dans le JSON :
 - titleShort : le nom court de la destination (ex. "Lisbonne").

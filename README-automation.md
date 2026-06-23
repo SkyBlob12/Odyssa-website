@@ -25,6 +25,7 @@ Crée une base de données avec ces colonnes :
 |---|---|---|
 | **Destination** | Titre | ex. « Lisbonne » |
 | **Pays** | Texte ou Select | ex. « Portugal » |
+| **Mois** | Select (ou Multi-select) | mois de référence, ex. « Septembre ». L'article est calé dessus : météo, affluence, événements, période conseillée. Multi-select possible pour une fenêtre (« Avril, Mai »). |
 | **Angle/notes** | Texte | optionnel — tes notes perso, intégrées par l'IA |
 | **Statut** | Select (ou Status) | valeurs : `À publier`, `En PR`, `Publié` |
 | **Lien post** | URL | optionnel — lien Insta/TikTok |

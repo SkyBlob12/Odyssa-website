@@ -100,8 +100,8 @@ function fixtureTip(title, tag) {
 }
 
 // ---------- Génération d'une destination ----------
-async function makeDestination({ name, country, angle }, registries, takenSlugs) {
-  const content = DRY ? fixtureDestination().content : await generateDestination({ name, country, angle }, env('GEMINI_API_KEY'));
+async function makeDestination({ name, country, angle, month }, registries, takenSlugs) {
+  const content = DRY ? fixtureDestination().content : await generateDestination({ name, country, angle, month }, env('GEMINI_API_KEY'));
   content.country = content.country || country || '';
   const slug = uniqueSlug(slugify(content.titleShort || name), takenSlugs);
   content.readingTime = readingTime(destWordCount(content));
@@ -190,7 +190,7 @@ async function main() {
     const next = queue.find((d) => !takenDestSlugs.has(slugify(d.name)));
     if (next) {
       notionPage = next;
-      await makeDestination({ name: next.name, country: next.country, angle: next.angle }, registries, takenDestSlugs);
+      await makeDestination({ name: next.name, country: next.country, angle: next.angle, month: next.month }, registries, takenDestSlugs);
       madeDestination = true;
     } else {
       log('Aucune destination en file → 3 conseils cette semaine.');

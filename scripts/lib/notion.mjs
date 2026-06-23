@@ -15,6 +15,15 @@ function headers(token) {
   };
 }
 
+/** Normalise pour comparaison : minuscules, sans accents, espaces réduits. */
+function norm(s) {
+  return (s || '')
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .trim();
+}
+
 /** Lit une valeur texte depuis une propriété Notion, quel que soit son type. */
 function readPlain(prop) {
   if (!prop) return '';
@@ -53,7 +62,7 @@ export async function fetchDestinationsToPublish(token, dbId) {
     const props = page.properties || {};
     const statusProp = props[STATUS_PROP];
     const status = readPlain(statusProp);
-    if (status !== TO_PUBLISH) continue;
+    if (norm(status) !== norm(TO_PUBLISH)) continue;
 
     // La colonne titre (type "title") quel que soit son nom.
     const titleKey = Object.keys(props).find((k) => props[k].type === 'title');
@@ -64,6 +73,7 @@ export async function fetchDestinationsToPublish(token, dbId) {
       pageId: page.id,
       name,
       country: readPlain(props['Pays']),
+      month: readPlain(props['Mois']),
       angle: readPlain(props['Angle/notes']) || readPlain(props['Angle']) || readPlain(props['Notes']),
       link: readPlain(props['Lien post']),
       statusType: statusProp?.type || 'select',
