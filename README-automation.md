@@ -71,7 +71,7 @@ npm run build:listings
 ## 5. Détails techniques
 
 - **Palette** : dérivée de la couleur dominante de la photo de couverture (`scripts/lib/palette.mjs`). La principale (hero/titres) varie ; l'accent moutarde, la touche rouille, le papier crème et l'encre restent constants pour garder l'identité rétro.
-- **Photos** : Unsplash, converties en WebP (`sharp`), avec attribution automatique.
+- **Photos** : Unsplash, converties en WebP (`sharp`), avec attribution automatique. Les destinations ont une couverture + galerie + photo pleine largeur ; les conseils ont une seule photo de couverture (Gemini fournit un mot-clé de recherche `photoQuery` en anglais pour la pertinence).
 - **Dédoublonnage** : un slug déjà présent dans `data/destinations.json` / `data/tips.json` est ignoré.
 - **Templates** : `blog/_templates/` (ignorés par GitHub Pages car préfixés `_`).
 - **Modèle IA** : `gemini-2.5-flash` par défaut (variable `GEMINI_MODEL` pour changer).

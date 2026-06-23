@@ -96,6 +96,25 @@ export async function fetchDestinationPhotos({ query, slug, absDir, relDir }, ke
   return out;
 }
 
+/**
+ * Récupère une seule photo de couverture pour un article conseils.
+ * @returns {Promise<{cover, attribution}>} chemin relatif à la racine du repo.
+ */
+export async function fetchTipPhoto({ query, slug, absDir, relDir }, key) {
+  await mkdir(absDir, { recursive: true });
+  let photos = await searchPhotos(query, 4, key);
+  if (photos.length === 0) photos = await searchPhotos(`${query} travel`, 4, key);
+  if (photos.length === 0) photos = await searchPhotos('travel journey', 4, key);
+  if (photos.length === 0) throw new Error(`Aucune photo Unsplash pour "${query}"`);
+
+  const p = photos[0];
+  await triggerDownload(p.downloadLocation, key);
+  const buf = await download(p.regular);
+  await toWebp(buf, join(absDir, 'cover.webp'), 1600);
+  log(`Photo prête pour le conseil ${slug}`);
+  return { cover: `${relDir}/cover.webp`, attribution: p };
+}
+
 /** Génère des images de remplacement (mode --dry-run, sans clé Unsplash). */
 export async function generatePlaceholderPhotos({ absDir, relDir, color = '#6e7d52' }) {
   await mkdir(absDir, { recursive: true });
@@ -115,5 +134,16 @@ export async function generatePlaceholderPhotos({ absDir, relDir, color = '#6e7d
       { author: 'Photo de démonstration', authorLink: 'https://unsplash.com' },
     ],
     dominant: { r: 110, g: 125, b: 82 },
+  };
+}
+
+/** Génère une couverture de remplacement pour un conseil (mode --dry-run). */
+export async function generatePlaceholderTipPhoto({ absDir, relDir, color = '#8c8f7a' }) {
+  await mkdir(absDir, { recursive: true });
+  await sharp({ create: { width: 1600, height: 700, channels: 3, background: color } })
+    .webp({ quality: 70 }).toFile(join(absDir, 'cover.webp'));
+  return {
+    cover: `${relDir}/cover.webp`,
+    attribution: { author: 'Photo de démonstration', authorLink: 'https://unsplash.com' },
   };
 }

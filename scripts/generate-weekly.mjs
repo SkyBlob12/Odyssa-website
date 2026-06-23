@@ -17,7 +17,7 @@ import {
   ROOT, log, slugify, readingTime, today, readJson, writeJson,
 } from './lib/util.mjs';
 import { derivePalette, FALLBACK_PALETTE } from './lib/palette.mjs';
-import { fetchDestinationPhotos, generatePlaceholderPhotos } from './lib/photos.mjs';
+import { fetchDestinationPhotos, generatePlaceholderPhotos, fetchTipPhoto, generatePlaceholderTipPhoto } from './lib/photos.mjs';
 import { generateDestination, generateTip, proposeTopics } from './lib/gemini.mjs';
 import { fetchDestinationsToPublish, markStatus } from './lib/notion.mjs';
 import { renderDestination, renderTip } from './lib/render.mjs';
@@ -89,6 +89,7 @@ function fixtureTip(title, tag) {
     title, titleShort: title, tag,
     description: `Conseils pratiques : ${title}.`,
     excerpt: `Tout ce qu’il faut savoir : ${title.toLowerCase()}.`,
+    photoQuery: 'travel planning',
     intro: 'Voici une méthode simple et concrète pour aborder ce sujet sereinement.',
     sections: [
       { heading: 'Bien se préparer', paragraphs: ['La préparation fait toute la différence.'], bullets: ['Point clé 1', 'Point clé 2'] },
@@ -127,12 +128,18 @@ async function makeTip(topic, registries, takenSlugs) {
   const slug = uniqueSlug(slugify(content.title), takenSlugs);
   content.readingTime = readingTime(tipWordCount(content));
 
+  const relRoot = `assets/blog/tips/${slug}`;
+  const absDir = join(ROOT, relRoot);
+  const photo = DRY
+    ? await generatePlaceholderTipPhoto({ absDir, relDir: relRoot })
+    : await fetchTipPhoto({ query: content.photoQuery || content.title, slug, absDir, relDir: relRoot }, env('UNSPLASH_KEY'));
+
   const related = [];
   if (registries.destinations[0]) related.push({ type: 'destination', slug: registries.destinations[0].slug, title: registries.destinations[0].title });
   const otherTip = registries.tips.find((t) => t.slug !== slug);
   if (otherTip) related.push({ type: 'tip', slug: otherTip.slug, title: otherTip.title });
 
-  const entry = await renderTip({ content, tag: topic.tag, tagClass: '', slug, date: today(), related });
+  const entry = await renderTip({ content, photo, tag: topic.tag, tagClass: '', slug, date: today(), related });
   registries.tips.unshift(entry);
   log(`✓ Tip généré : ${slug}`);
   return entry;

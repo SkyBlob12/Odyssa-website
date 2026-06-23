@@ -138,6 +138,7 @@ const TIP_SCHEMA = {
     titleShort: S.str,
     description: S.str,
     excerpt: S.str,
+    photoQuery: S.str,
     intro: S.str,
     sections: S.arr({
       type: 'object',
@@ -150,7 +151,7 @@ const TIP_SCHEMA = {
     }),
     tip: S.str,
   },
-  required: ['title', 'titleShort', 'description', 'excerpt', 'intro', 'sections', 'tip'],
+  required: ['title', 'titleShort', 'description', 'excerpt', 'photoQuery', 'intro', 'sections', 'tip'],
 };
 
 const TOPICS_SCHEMA = {
@@ -201,6 +202,7 @@ Structure attendue dans le JSON :
 - titleShort : identique ou très proche du title.
 - description : meta description SEO, 150 caractères max.
 - excerpt : accroche pour la carte du blog, ~140 caractères.
+- photoQuery : 2 à 4 mots-clés EN ANGLAIS pour trouver une photo de couverture pertinente et concrète sur Unsplash (ex. "packing suitcase travel", "airport departure board", "budget travel backpacker"). Privilégie un sujet visuel et photographiable, pas un concept abstrait.
 - intro : introduction engageante (2-3 phrases).
 - sections : 4 à 6 sections, chacune avec heading, paragraphs (1-3) et bullets (optionnel) — privilégie le concret et l'actionnable.
 - tip : le "conseil Odyssa" final, lié à l'app (1-2 phrases).

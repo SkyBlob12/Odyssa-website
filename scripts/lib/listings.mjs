@@ -28,9 +28,12 @@ function destCard(d, { hrefBase, photoPrefix }) {
         </a>`;
 }
 
-function tipCard(t, { hrefBase }) {
+function tipCard(t, { hrefBase, photoPrefix }) {
+  const photo = t.cover
+    ? `<div class="blog-card-photo"><img src="${photoPrefix}${escapeHtml(t.cover)}" alt="${escapeHtml(t.title)}" loading="lazy"></div>`
+    : `<div class="blog-card-photo">${escapeHtml(t.tag)}</div>`;
   return `        <a href="${hrefBase}${t.slug}/" class="blog-card">
-          <div class="blog-card-photo">${escapeHtml(t.tag)}</div>
+          ${photo}
           <div class="blog-card-body">
             <span class="blog-card-tag ${t.tagClass || ''}">${escapeHtml(t.tag)}</span>
             <h3>${escapeHtml(t.title)}</h3>
@@ -63,7 +66,7 @@ export async function rebuildListings() {
     blogIndex,
     '<!-- AUTO:TIPS_CARDS:START -->',
     '<!-- AUTO:TIPS_CARDS:END -->',
-    tips.map((t) => tipCard(t, { hrefBase: '' })).join('\n\n')
+    tips.map((t) => tipCard(t, { hrefBase: '', photoPrefix: '../' })).join('\n\n')
   );
   await writeText(blogIndexPath, blogIndex);
 

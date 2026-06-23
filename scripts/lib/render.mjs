@@ -23,15 +23,19 @@ function pull(text) {
   return text ? `        <div class="pull">«&nbsp;${inline(text)}&nbsp;»</div>` : '';
 }
 
+/** Ligne de crédit photo Unsplash, avec lien auteur si disponible. */
+function creditLine(a = {}) {
+  return a.authorLink
+    ? `Photo&nbsp;: <a href="${escapeHtml(a.authorLink)}?utm_source=odyssa&utm_medium=referral" target="_blank" rel="noopener">${escapeHtml(a.author)}</a> / Unsplash`
+    : escapeHtml(a.author || 'Unsplash');
+}
+
 function galleryBlock(photos, prefix, alt) {
   if (!photos.gallery?.length) return '';
   const fig = photos.gallery
     .map((src, i) => {
       const a = photos.attributions[i + 1] || photos.attributions[0] || {};
-      const credit = a.authorLink
-        ? `Photo&nbsp;: <a href="${escapeHtml(a.authorLink)}?utm_source=odyssa&utm_medium=referral" target="_blank" rel="noopener">${escapeHtml(a.author)}</a> / Unsplash`
-        : escapeHtml(a.author || 'Unsplash');
-      return `          <figure class="dest-photo"><img src="${prefix}${src}" alt="${escapeHtml(alt)} ${i + 1}" loading="lazy"><figcaption>${credit}</figcaption></figure>`;
+      return `          <figure class="dest-photo"><img src="${prefix}${src}" alt="${escapeHtml(alt)} ${i + 1}" loading="lazy"><figcaption>${creditLine(a)}</figcaption></figure>`;
     })
     .join('\n');
   return `        <div class="dest-gallery">\n${fig}\n        </div>`;
@@ -40,10 +44,7 @@ function galleryBlock(photos, prefix, alt) {
 function fullBlock(photos, prefix, alt) {
   if (!photos.full) return '';
   const a = photos.attributions[3] || photos.attributions[0] || {};
-  const credit = a.authorLink
-    ? `Photo&nbsp;: <a href="${escapeHtml(a.authorLink)}?utm_source=odyssa&utm_medium=referral" target="_blank" rel="noopener">${escapeHtml(a.author)}</a> / Unsplash`
-    : escapeHtml(a.author || 'Unsplash');
-  return `        <figure class="dest-full"><img src="${prefix}${photos.full}" alt="${escapeHtml(alt)}" loading="lazy"></figure>\n        <p class="dest-cap">${credit}</p>`;
+  return `        <figure class="dest-full"><img src="${prefix}${photos.full}" alt="${escapeHtml(alt)}" loading="lazy"></figure>\n        <p class="dest-cap">${creditLine(a)}</p>`;
 }
 
 function relatedBlock(items, indent = '          ') {
@@ -144,10 +145,16 @@ export async function renderDestination({ content, photos, palette, slug, date, 
 }
 
 /** Rendu d'un article tips → écrit le fichier, renvoie l'entrée de registre. */
-export async function renderTip({ content, tag, tagClass, slug, date, related }) {
+export async function renderTip({ content, photo, tag, tagClass, slug, date, related }) {
   const tpl = await readText(join(ROOT, 'blog/_templates/tip.html'));
   const prefix = '../../'; // depuis /blog/<slug>/
   const url = `${SITE_URL}/blog/${slug}/`;
+  const alt = content.titleShort || content.title;
+  const ogImage = photo?.cover ? `${SITE_URL}/${photo.cover}` : `${SITE_URL}/assets/og-image.png`;
+
+  const cover = photo?.cover
+    ? `      <figure class="article-cover"><img src="${prefix}${photo.cover}" alt="${escapeHtml(alt)}" loading="lazy"><figcaption>${creditLine(photo.attribution)}</figcaption></figure>`
+    : '';
 
   const relatedItems = (related || []).map((r) =>
     r.type === 'destination'
@@ -160,10 +167,12 @@ export async function renderTip({ content, tag, tagClass, slug, date, related })
     TITLE: escapeHtml(content.title),
     TITLE_SHORT: escapeHtml(content.titleShort || content.title),
     DESCRIPTION: escapeHtml(content.description),
+    OG_IMAGE: ogImage,
     DATE: date,
     TAG: escapeHtml(tag),
     TAG_CLASS: tagClass || '',
     READING_TIME: content.readingTime,
+    COVER: cover,
     INTRO: inline(content.intro),
     SECTIONS: tipSections(content.sections),
     TIP: inline(content.tip),
@@ -181,6 +190,7 @@ export async function renderTip({ content, tag, tagClass, slug, date, related })
     tagClass: tagClass || '',
     excerpt: content.excerpt,
     readingTime: content.readingTime,
+    cover: photo?.cover || null,
     date,
   };
 }
