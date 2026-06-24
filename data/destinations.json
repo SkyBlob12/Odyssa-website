@@ -1,5 +1,15 @@
 [
   {
+    "slug": "perou",
+    "title": "Pérou, terre des Incas et des mystères",
+    "country": "Pérou",
+    "tag": "Pérou",
+    "excerpt": "Explorez les secrets du Pérou, de Machu Picchu à la gastronomie locale",
+    "readingTime": "4 min de lecture",
+    "cover": "assets/blog/destinations/perou/cover.webp",
+    "date": "2026-06-24"
+  },
+  {
     "slug": "tanzanie",
     "title": "Tanzanie, terre de safaris et de plages de sable blanc",
     "country": "Tansanie",

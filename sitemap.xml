@@ -16,6 +16,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://odyssa-app.com/blog/destinations/perou/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://odyssa-app.com/blog/destinations/tanzanie/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -32,6 +37,16 @@
   </url>
   <url>
     <loc>https://odyssa-app.com/blog/destinations/maroc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/gerer-son-budget-voyage-en-groupe-les-meilleures-strategies/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/les-meilleures-applications-pour-organiser-un-voyage-en-toute-serenite/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

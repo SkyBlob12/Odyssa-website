@@ -53,13 +53,13 @@
       "title": "Les meilleures applications pour organiser un voyage",
       "tag": "Astuces",
       "angle": "Cartes hors ligne, itinéraires, budget, traduction, transports.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment gérer son budget voyage en groupe",
       "tag": "Budget",
       "angle": "Cagnotte, partage des dépenses, remboursements, outils.",
-      "used": false
+      "used": true
     },
     {
       "title": "Road trip réussi : planifier un itinéraire en voiture",
