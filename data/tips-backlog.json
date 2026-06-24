@@ -29,13 +29,13 @@
       "title": "Comment trouver des billets d'avion au meilleur prix",
       "tag": "Budget",
       "angle": "Comparateurs, alertes prix, jours et périodes idéales, vols avec escale.",
-      "used": false
+      "used": true
     },
     {
       "title": "Décalage horaire : comment l'éviter et le gérer",
       "tag": "Bien-être",
       "angle": "Préparation avant, pendant et après le vol pour limiter le jetlag.",
-      "used": false
+      "used": true
     },
     {
       "title": "Assurance voyage : laquelle choisir et quand est-ce utile",

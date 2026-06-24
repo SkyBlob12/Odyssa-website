@@ -1,5 +1,15 @@
 [
   {
+    "slug": "japon",
+    "title": "Découvrir le Japon, un pays aux mille visages",
+    "country": "Japon",
+    "tag": "Japon",
+    "excerpt": "Explorez les merveilles du Japon",
+    "readingTime": "5 min de lecture",
+    "cover": "assets/blog/destinations/japon/cover.webp",
+    "date": "2026-06-24"
+  },
+  {
     "slug": "portugal",
     "title": "Découvrir le Portugal, un pays au charme discret",
     "country": "Portugal",
