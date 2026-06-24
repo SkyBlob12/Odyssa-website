@@ -5,7 +5,7 @@
  *   Si aucune destination en file → 3 conseils à la place.
  *
  * Variables d'environnement (requises hors --dry-run) :
- *   GEMINI_API_KEY, NOTION_TOKEN, NOTION_DB_ID, UNSPLASH_KEY
+ *   GROQ_API_KEY, NOTION_TOKEN, NOTION_DB_ID, UNSPLASH_KEY
  *
  * Usage :
  *   node scripts/generate-weekly.mjs            # run complet
@@ -18,7 +18,7 @@ import {
 } from './lib/util.mjs';
 import { derivePalette, FALLBACK_PALETTE } from './lib/palette.mjs';
 import { fetchDestinationPhotos, generatePlaceholderPhotos, fetchTipPhoto, generatePlaceholderTipPhoto } from './lib/photos.mjs';
-import { generateDestination, generateTip, proposeTopics } from './lib/gemini.mjs';
+import { generateDestination, generateTip, proposeTopics } from './lib/llm.mjs';
 import { fetchDestinationsToPublish, markStatus } from './lib/notion.mjs';
 import { renderDestination, renderTip } from './lib/render.mjs';
 import { rebuildListings, rebuildSitemap } from './lib/listings.mjs';
@@ -102,7 +102,7 @@ function fixtureTip(title, tag) {
 
 // ---------- Génération d'une destination ----------
 async function makeDestination({ name, country, angle, month }, registries, takenSlugs) {
-  const content = DRY ? fixtureDestination().content : await generateDestination({ name, country, angle, month }, env('GEMINI_API_KEY'));
+  const content = DRY ? fixtureDestination().content : await generateDestination({ name, country, angle, month }, env('GROQ_API_KEY'));
   content.country = content.country || country || '';
   const slug = uniqueSlug(slugify(content.titleShort || name), takenSlugs);
   content.readingTime = readingTime(destWordCount(content));
@@ -124,7 +124,7 @@ async function makeDestination({ name, country, angle, month }, registries, take
 
 // ---------- Génération d'un tip ----------
 async function makeTip(topic, registries, takenSlugs) {
-  const content = DRY ? fixtureTip(topic.title, topic.tag) : await generateTip(topic, env('GEMINI_API_KEY'));
+  const content = DRY ? fixtureTip(topic.title, topic.tag) : await generateTip(topic, env('GROQ_API_KEY'));
   const slug = uniqueSlug(slugify(content.title), takenSlugs);
   content.readingTime = readingTime(tipWordCount(content));
 
@@ -150,10 +150,10 @@ async function pickTipTopics(count, backlog, existingTitles) {
   const available = backlog.topics.filter((t) => !t.used);
   const chosen = available.slice(0, count);
 
-  // Refill : si peu de sujets restants, on en demande de nouveaux à Gemini.
+  // Refill : si peu de sujets restants, on en demande de nouveaux au LLM.
   if (!DRY && available.length - chosen.length < BACKLOG_REFILL_AT) {
     try {
-      const proposed = await proposeTopics({ count: 10, existingTitles }, env('GEMINI_API_KEY'));
+      const proposed = await proposeTopics({ count: 10, existingTitles }, env('GROQ_API_KEY'));
       for (const p of proposed) {
         if (!backlog.topics.some((t) => t.title.toLowerCase() === p.title.toLowerCase())) {
           backlog.topics.push({ ...p, used: false });
@@ -179,7 +179,7 @@ async function main() {
     return;
   }
 
-  if (!DRY) requireEnv(['GEMINI_API_KEY', 'UNSPLASH_KEY', 'NOTION_TOKEN', 'NOTION_DB_ID']);
+  if (!DRY) requireEnv(['GROQ_API_KEY', 'UNSPLASH_KEY', 'NOTION_TOKEN', 'NOTION_DB_ID']);
 
   const backlog = await readJson(join(ROOT, 'data/tips-backlog.json'));
   const takenDestSlugs = new Set(registries.destinations.map((d) => d.slug));

@@ -5,7 +5,7 @@ Génère **3 articles par semaine** (1 destination + 2 conseils) et ouvre une **
 ```
 Notion (destinations)  ─┐
 Backlog (data/tips-backlog.json) ─┼─► GitHub Action (lundi)
-                                  │      └─ Gemini (rédaction) + Unsplash (photos)
+                                  │      └─ Groq / Llama (rédaction) + Unsplash (photos)
                                   │      └─ rendu HTML + listings + sitemap
                                   └────► Pull Request ──(merge 1 clic)──► GitHub Pages
 ```
@@ -15,7 +15,7 @@ Backlog (data/tips-backlog.json) ─┼─► GitHub Action (lundi)
 ### a) Clés API (gratuites)
 | Service | Où l'obtenir | Secret GitHub |
 |---|---|---|
-| Google Gemini | https://aistudio.google.com/apikey | `GEMINI_API_KEY` |
+| Groq | https://console.groq.com/keys | `GROQ_API_KEY` |
 | Unsplash | https://unsplash.com/developers (créer une app) | `UNSPLASH_KEY` (Access Key) |
 | Notion | https://www.notion.so/my-integrations (nouvelle intégration interne) | `NOTION_TOKEN` |
 
@@ -35,8 +35,8 @@ Récupère l'**ID de la base** (dans l'URL : `notion.so/<workspace>/<DATABASE_ID
 
 ### c) Secrets GitHub
 Repo → **Settings → Secrets and variables → Actions → New repository secret**, ajoute :
-`GEMINI_API_KEY`, `UNSPLASH_KEY`, `NOTION_TOKEN`, `NOTION_DB_ID`.
-(Optionnel : variable `GEMINI_MODEL` pour changer de modèle, défaut `gemini-2.5-flash`.)
+`GROQ_API_KEY`, `UNSPLASH_KEY`, `NOTION_TOKEN`, `NOTION_DB_ID`.
+(Optionnel : variable `GROQ_MODEL` pour changer de modèle, défaut `llama-3.3-70b-versatile`.)
 
 ### d) GitHub Pages
 Vérifie que Pages déploie depuis la branche `main` (Settings → Pages). Merger une PR = publication.
@@ -52,7 +52,7 @@ Autorise aussi les Actions à créer des PR : **Settings → Actions → General
 ## 3. Sujets des conseils (tips)
 
 `data/tips-backlog.json` contient la liste des sujets. Le script pioche les `"used": false`.
-Quand il reste peu de sujets, Gemini en propose de nouveaux automatiquement (ajoutés au backlog). Tu peux éditer/ajouter/réordonner librement.
+Quand il reste peu de sujets, l'IA en propose de nouveaux automatiquement (ajoutés au backlog). Tu peux éditer/ajouter/réordonner librement.
 
 ## 4. Tester en local
 
@@ -70,14 +70,14 @@ npm run build:listings
 
 Illustrer rétroactivement les conseils déjà publiés qui n'ont pas de couverture (opération ponctuelle, idempotente : les articles déjà illustrés sont ignorés) :
 ```bash
-UNSPLASH_KEY=… GEMINI_API_KEY=… npm run backfill:tip-images   # ajoute --dry-run pour tester sans clé
+UNSPLASH_KEY=… GROQ_API_KEY=… npm run backfill:tip-images   # ajoute --dry-run pour tester sans clé
 ```
 En CI : onglet **Actions → « Blog - backfill images conseils » → Run workflow** (ouvre une PR avec les couvertures).
 
 ## 5. Détails techniques
 
 - **Palette** : dérivée de la couleur dominante de la photo de couverture (`scripts/lib/palette.mjs`). La principale (hero/titres) varie ; l'accent moutarde, la touche rouille, le papier crème et l'encre restent constants pour garder l'identité rétro.
-- **Photos** : Unsplash, converties en WebP (`sharp`), avec attribution automatique. Les destinations ont une couverture + galerie + photo pleine largeur ; les conseils ont une seule photo de couverture (Gemini fournit un mot-clé de recherche `photoQuery` en anglais pour la pertinence).
+- **Photos** : Unsplash, converties en WebP (`sharp`), avec attribution automatique. Les destinations ont une couverture + galerie + photo pleine largeur ; les conseils ont une seule photo de couverture (le modèle fournit un mot-clé de recherche `photoQuery` en anglais pour la pertinence).
 - **Dédoublonnage** : un slug déjà présent dans `data/destinations.json` / `data/tips.json` est ignoré.
 - **Templates** : `blog/_templates/` (ignorés par GitHub Pages car préfixés `_`).
-- **Modèle IA** : `gemini-2.5-flash` par défaut (variable `GEMINI_MODEL` pour changer).
+- **Modèle IA** : Groq, `llama-3.3-70b-versatile` par défaut (variable `GROQ_MODEL` pour changer). API compatible OpenAI, sortie JSON.

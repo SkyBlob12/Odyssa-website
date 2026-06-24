@@ -29,8 +29,8 @@ jobs:
       - name: Illustrer les anciens conseils
         run: node scripts/backfill-tip-images.mjs
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_MODEL: ${{ vars.GROQ_MODEL }}
           UNSPLASH_KEY: ${{ secrets.UNSPLASH_KEY }}
 
       - name: Créer la Pull Request

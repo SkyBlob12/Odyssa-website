@@ -3,7 +3,7 @@
  * Backfill ponctuel : ajoute une photo de couverture aux conseils déjà publiés
  * (ceux sans champ `cover` dans data/tips.json). À lancer une seule fois.
  *
- * Variables requises : UNSPLASH_KEY, GEMINI_API_KEY.
+ * Variables requises : UNSPLASH_KEY, GROQ_API_KEY.
  *
  * Usage :
  *   node scripts/backfill-tip-images.mjs
@@ -12,7 +12,7 @@
 import { join } from 'node:path';
 import { ROOT, SITE_URL, log, readJson, writeJson, readText, writeText } from './lib/util.mjs';
 import { fetchTipPhoto, generatePlaceholderTipPhoto } from './lib/photos.mjs';
-import { generatePhotoQuery } from './lib/gemini.mjs';
+import { generatePhotoQuery } from './lib/llm.mjs';
 import { tipCoverFigure } from './lib/render.mjs';
 import { rebuildListings } from './lib/listings.mjs';
 
@@ -23,7 +23,7 @@ const BODY_ANCHOR = '\n      <div class="article-body">';
 
 async function main() {
   if (!DRY) {
-    const missing = ['UNSPLASH_KEY', 'GEMINI_API_KEY'].filter((k) => !env(k));
+    const missing = ['UNSPLASH_KEY', 'GROQ_API_KEY'].filter((k) => !env(k));
     if (missing.length) throw new Error(`Variables manquantes : ${missing.join(', ')}`);
   }
 
@@ -39,7 +39,7 @@ async function main() {
     const photo = DRY
       ? await generatePlaceholderTipPhoto({ absDir, relDir: relRoot })
       : await fetchTipPhoto(
-          { query: await generatePhotoQuery({ title: tip.title, tag: tip.tag }, env('GEMINI_API_KEY')), slug: tip.slug, absDir, relDir: relRoot },
+          { query: await generatePhotoQuery({ title: tip.title, tag: tip.tag }, env('GROQ_API_KEY')), slug: tip.slug, absDir, relDir: relRoot },
           env('UNSPLASH_KEY')
         );
 

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Génération automatisée des articles du blog Odyssa (destinations + conseils) via Notion, Gemini et Unsplash.",
+  "description": "Génération automatisée des articles du blog Odyssa (destinations + conseils) via Notion, Groq et Unsplash.",
   "scripts": {
     "generate": "node scripts/generate-weekly.mjs",
     "generate:dry": "node scripts/generate-weekly.mjs --dry-run",

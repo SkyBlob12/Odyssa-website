@@ -1,14 +1,12 @@
 import { log } from './util.mjs';
 
-const MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
-// Modèles essayés dans l'ordre : le principal, puis des replis si surcharge (503).
-const MODELS = [...new Set([MODEL, 'gemini-2.5-flash', 'gemini-2.0-flash'])];
-const ENDPOINT = (model, key) =>
-  `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`;
+// Fournisseur : Groq (API compatible OpenAI), tier gratuit généreux.
+const MODEL = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
+const ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 // Codes transitoires qui méritent un nouvel essai.
-const RETRYABLE = new Set([429, 500, 502, 503, 504]);
+const RETRYABLE = new Set([408, 429, 500, 502, 503, 504]);
 
 /** Retire les tirets longs (cadratin, barre horizontale) d'une chaîne, sans toucher
  *  aux plages chiffrées en demi-cadratin (ex. "60–90 €"). */
@@ -42,129 +40,61 @@ zéro remplissage, zéro formule creuse, aucun emoji ; n'invente pas de faits in
 N'utilise JAMAIS le tiret long / cadratin (—) comme ponctuation : remplace-le par une virgule, des parenthèses, deux-points ou un point selon le sens. (Le tiret demi-cadratin reste autorisé uniquement pour les plages de chiffres ou de dates, ex. "60–90 €".)
 `;
 
-async function callGemini(prompt, schema, key, temperature = 0.85) {
+/**
+ * Appelle le LLM en exigeant une réponse JSON.
+ * Réessaie sur erreurs transitoires (429/5xx) en respectant l'en-tête retry-after.
+ */
+async function callLLM(prompt, key, temperature = 0.85) {
   const body = JSON.stringify({
-    contents: [{ parts: [{ text: prompt }] }],
-    generationConfig: {
-      temperature,
-      responseMimeType: 'application/json',
-      responseSchema: schema,
-    },
+    model: MODEL,
+    messages: [{
+      role: 'user',
+      content: `${prompt}\n\nRéponds UNIQUEMENT avec un objet JSON valide conforme à la structure demandée, sans aucun texte avant ou après.`,
+    }],
+    temperature,
+    max_tokens: 8192,
+    response_format: { type: 'json_object' },
   });
 
-  const MAX_ATTEMPTS = 4; // par modèle
+  const MAX_ATTEMPTS = 5;
   let lastErr;
-  for (const model of MODELS) {
-    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-      let res;
-      try {
-        res = await fetch(ENDPOINT(model, key), {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body,
-        });
-      } catch (e) {
-        // erreur réseau → on retente
-        lastErr = e;
-        await sleep(attempt * 2000);
-        continue;
-      }
-
-      if (res.ok) {
-        const data = await res.json();
-        const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-        if (!text) throw new Error('Réponse Gemini vide');
-        try {
-          return sanitize(JSON.parse(text));
-        } catch {
-          return sanitize(JSON.parse(text.replace(/^```json\s*|\s*```$/g, '')));
-        }
-      }
-
-      const detail = await res.text();
-      lastErr = new Error(`Gemini ${res.status} (${model}): ${detail}`);
-      if (!RETRYABLE.has(res.status)) throw lastErr; // erreur définitive (clé invalide, etc.)
-
-      const wait = attempt * 3000; // 3s, 6s, 9s…
-      log(`Gemini ${res.status} sur ${model} — nouvel essai ${attempt}/${MAX_ATTEMPTS} dans ${wait / 1000}s`);
-      await sleep(wait);
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    let res;
+    try {
+      res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${key}` },
+        body,
+      });
+    } catch (e) {
+      // erreur réseau → on retente
+      lastErr = e;
+      await sleep(attempt * 2000);
+      continue;
     }
-    log(`Modèle ${model} indisponible après ${MAX_ATTEMPTS} essais — repli sur le suivant si disponible.`);
+
+    if (res.ok) {
+      const data = await res.json();
+      const text = data?.choices?.[0]?.message?.content;
+      if (!text) throw new Error('Réponse LLM vide');
+      try {
+        return sanitize(JSON.parse(text));
+      } catch {
+        return sanitize(JSON.parse(text.replace(/^```json\s*|\s*```$/g, '')));
+      }
+    }
+
+    const detail = await res.text();
+    lastErr = new Error(`Groq ${res.status} (${MODEL}): ${detail}`);
+    if (!RETRYABLE.has(res.status)) throw lastErr; // erreur définitive (clé invalide, quota épuisé, etc.)
+
+    const retryAfter = Number(res.headers.get('retry-after'));
+    const wait = retryAfter > 0 ? Math.min(retryAfter * 1000, 30000) : attempt * 3000;
+    log(`Groq ${res.status} — nouvel essai ${attempt}/${MAX_ATTEMPTS} dans ${Math.round(wait / 1000)}s`);
+    await sleep(wait);
   }
-  throw lastErr || new Error('Gemini : échec après tous les essais');
+  throw lastErr || new Error('Groq : échec après tous les essais');
 }
-
-const S = {
-  str: { type: 'string' },
-  arr: (items) => ({ type: 'array', items }),
-};
-
-const DEST_SCHEMA = {
-  type: 'object',
-  properties: {
-    titleShort: S.str,
-    title: S.str,
-    subtitle: S.str,
-    eyebrow: S.str,
-    countryCode: S.str,
-    description: S.str,
-    excerpt: S.str,
-    intro: S.str,
-    facts: {
-      type: 'object',
-      properties: { period: S.str, budget: S.str, duration: S.str, currency: S.str },
-      required: ['period', 'budget', 'duration', 'currency'],
-    },
-    sections: S.arr({
-      type: 'object',
-      properties: {
-        kicker: S.str,
-        heading: S.str,
-        paragraphs: S.arr(S.str),
-        bullets: S.arr(S.str),
-        pull: S.str,
-      },
-      required: ['kicker', 'heading', 'paragraphs'],
-    }),
-    tip: S.str,
-  },
-  required: ['titleShort', 'title', 'subtitle', 'eyebrow', 'countryCode', 'description', 'excerpt', 'intro', 'facts', 'sections', 'tip'],
-};
-
-const TIP_SCHEMA = {
-  type: 'object',
-  properties: {
-    title: S.str,
-    titleShort: S.str,
-    description: S.str,
-    excerpt: S.str,
-    photoQuery: S.str,
-    intro: S.str,
-    sections: S.arr({
-      type: 'object',
-      properties: {
-        heading: S.str,
-        paragraphs: S.arr(S.str),
-        bullets: S.arr(S.str),
-      },
-      required: ['heading', 'paragraphs'],
-    }),
-    tip: S.str,
-  },
-  required: ['title', 'titleShort', 'description', 'excerpt', 'photoQuery', 'intro', 'sections', 'tip'],
-};
-
-const TOPICS_SCHEMA = {
-  type: 'object',
-  properties: {
-    topics: S.arr({
-      type: 'object',
-      properties: { title: S.str, tag: S.str, angle: S.str },
-      required: ['title', 'tag', 'angle'],
-    }),
-  },
-  required: ['topics'],
-};
 
 /** Génère le contenu d'une fiche destination. */
 export async function generateDestination({ name, country, angle, month }, key) {
@@ -173,7 +103,7 @@ Rédige un guide de voyage LONG (1200 à 1500 mots) sur la destination : "${name
 ${angle ? `Angle / notes personnelles à intégrer : ${angle}` : ''}
 ${month ? `MOIS DE RÉFÉRENCE : ${month}. Ancre concrètement le guide sur cette période : météo et températures typiques en ${month}, ambiance et affluence, événements/fêtes du moment, ce qui est ouvert ou de saison, vêtements à prévoir. La section "quand partir" doit expliciter pourquoi ${month} (avantages/limites), et plusieurs autres sections doivent refléter naturellement cette saison. Le champ facts.period doit cohérer avec ${month}.` : ''}
 
-Structure attendue dans le JSON :
+Structure attendue : un objet JSON avec ces clés :
 - titleShort : le nom court de la destination (ex. "Lisbonne").
 - title : un titre accrocheur incluant le nom (ex. "Lisbonne, la ville aux sept collines").
 - subtitle : sous-titre court et évocateur.
@@ -182,13 +112,13 @@ Structure attendue dans le JSON :
 - description : meta description SEO, 150 caractères max.
 - excerpt : accroche pour la carte du blog, ~140 caractères.
 - intro : paragraphe d'introduction immersif (3-4 phrases).
-- facts : { period (meilleure période), budget (par jour, ex "60–90 €"), duration (durée idéale), currency (monnaie) }.
-- sections : 8 à 9 sections. Chaque section a kicker ("01 · Pourquoi y aller"), heading (titre court), paragraphs (1-3 paragraphes riches), bullets (liste optionnelle), pull (citation en exergue optionnelle, une seule sur tout l'article).
+- facts : objet { period (meilleure période), budget (par jour, ex "60–90 €"), duration (durée idéale), currency (monnaie) }.
+- sections : tableau de 8 à 9 objets. Chaque section : kicker ("01 · Pourquoi y aller"), heading (titre court), paragraphs (tableau de 1-3 paragraphes riches), bullets (tableau optionnel), pull (citation en exergue optionnelle, une seule sur tout l'article).
   Couvre : pourquoi y aller, quand partir, les quartiers/zones, à voir & à faire, gastronomie, où dormir, budget & bons plans, se déplacer, conseils pratiques.
 - tip : le "conseil Odyssa" final, lié à l'organisation/itinéraire avec l'app (1-2 phrases).
 `;
-  log(`Gemini → destination "${name}"`);
-  return callGemini(prompt, DEST_SCHEMA, key);
+  log(`LLM → destination "${name}"`);
+  return callLLM(prompt, key);
 }
 
 /** Génère le contenu d'un article conseils/tips. */
@@ -197,34 +127,30 @@ export async function generateTip({ title, tag, angle }, key) {
 Rédige un article de conseils voyage (800 à 1100 mots) sur le sujet : "${title}".
 Catégorie : ${tag}. ${angle ? `Angle : ${angle}` : ''}
 
-Structure attendue dans le JSON :
+Structure attendue : un objet JSON avec ces clés :
 - title : titre optimisé SEO (peut reformuler légèrement le sujet).
 - titleShort : identique ou très proche du title.
 - description : meta description SEO, 150 caractères max.
 - excerpt : accroche pour la carte du blog, ~140 caractères.
 - photoQuery : 2 à 4 mots-clés EN ANGLAIS pour trouver une photo de couverture pertinente et concrète sur Unsplash (ex. "packing suitcase travel", "airport departure board", "budget travel backpacker"). Privilégie un sujet visuel et photographiable, pas un concept abstrait.
 - intro : introduction engageante (2-3 phrases).
-- sections : 4 à 6 sections, chacune avec heading, paragraphs (1-3) et bullets (optionnel) — privilégie le concret et l'actionnable.
+- sections : tableau de 4 à 6 objets, chacun avec heading, paragraphs (tableau de 1-3) et bullets (tableau optionnel) — privilégie le concret et l'actionnable.
 - tip : le "conseil Odyssa" final, lié à l'app (1-2 phrases).
 `;
-  log(`Gemini → tip "${title}"`);
-  return callGemini(prompt, TIP_SCHEMA, key);
+  log(`LLM → tip "${title}"`);
+  return callLLM(prompt, key);
 }
-
-const PHOTO_QUERY_SCHEMA = {
-  type: 'object',
-  properties: { photoQuery: S.str },
-  required: ['photoQuery'],
-};
 
 /** Déduit un mot-clé photo (EN) pour un sujet de conseil déjà publié (backfill). */
 export async function generatePhotoQuery({ title, tag }, key) {
   const prompt = `${BRAND}
 Pour cet article de conseils voyage, donne 2 à 4 mots-clés EN ANGLAIS pour trouver une photo de couverture pertinente et concrète sur Unsplash (ex. "packing suitcase travel", "airport departure board"). Privilégie un sujet visuel et photographiable, pas un concept abstrait.
 Titre : "${title}"
-Catégorie : ${tag}`;
-  log(`Gemini → mot-clé photo pour "${title}"`);
-  const out = await callGemini(prompt, PHOTO_QUERY_SCHEMA, key, 0.4);
+Catégorie : ${tag}
+
+Réponds avec un objet JSON de forme : {"photoQuery": "..."}`;
+  log(`LLM → mot-clé photo pour "${title}"`);
+  const out = await callLLM(prompt, key, 0.4);
   return out.photoQuery;
 }
 
@@ -235,9 +161,12 @@ Propose ${count} nouveaux sujets d'articles de conseils voyage pour le blog Odys
 Évite absolument tout doublon ou sujet trop proche de cette liste déjà couverte :
 ${existingTitles.map((t) => `- ${t}`).join('\n')}
 
-Chaque sujet : title (accrocheur, orienté SEO), tag (catégorie courte : Organisation, Budget, Astuces, Famille, Pratique, Inspiration, Bien-être, Gastronomie, Éco-voyage), angle (1 phrase sur ce que l'article couvrira).
+Réponds avec un objet JSON de forme : {"topics": [{"title": ..., "tag": ..., "angle": ...}, ...]}
+- title : accrocheur, orienté SEO.
+- tag : catégorie courte (Organisation, Budget, Astuces, Famille, Pratique, Inspiration, Bien-être, Gastronomie, Éco-voyage).
+- angle : 1 phrase sur ce que l'article couvrira.
 `;
-  log(`Gemini → proposition de ${count} sujets tips`);
-  const out = await callGemini(prompt, TOPICS_SCHEMA, key, 1.0);
+  log(`LLM → proposition de ${count} sujets tips`);
+  const out = await callLLM(prompt, key, 1.0);
   return out.topics || [];
 }
