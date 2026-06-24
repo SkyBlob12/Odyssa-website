@@ -16,12 +16,27 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://odyssa-app.com/blog/destinations/japon/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://odyssa-app.com/blog/destinations/portugal/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://odyssa-app.com/blog/destinations/maroc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/comment-eviter-et-gerer-le-decalage-horaire-lors-d-un-voyage/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/comment-trouver-des-billets-d-avion-au-meilleur-prix-conseils-pour-voy/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
