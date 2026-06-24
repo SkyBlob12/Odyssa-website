@@ -1,5 +1,15 @@
 [
   {
+    "slug": "portugal",
+    "title": "Découvrir le Portugal, un pays au charme discret",
+    "country": "Portugal",
+    "tag": "Portugal",
+    "excerpt": "Explorez le Portugal en Mai, une période idéale",
+    "readingTime": "4 min de lecture",
+    "cover": "assets/blog/destinations/portugal/cover.webp",
+    "date": "2026-06-24"
+  },
+  {
     "slug": "maroc",
     "title": "Maroc : L'appel vibrant des mille et une nuits en Mai",
     "country": "Maroc",
