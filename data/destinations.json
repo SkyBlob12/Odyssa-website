@@ -1,5 +1,15 @@
 [
   {
+    "slug": "islande",
+    "title": "Islande, terre de feu et de glace",
+    "country": "Islande",
+    "tag": "Islande",
+    "excerpt": "Islande en juin, temps idéal pour découvrir ses merveilles naturelles",
+    "readingTime": "5 min de lecture",
+    "cover": "assets/blog/destinations/islande/cover.webp",
+    "date": "2026-06-24"
+  },
+  {
     "slug": "perou",
     "title": "Pérou, terre des Incas et des mystères",
     "country": "Pérou",

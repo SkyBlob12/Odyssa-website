@@ -65,13 +65,13 @@
       "title": "Road trip réussi : planifier un itinéraire en voiture",
       "tag": "Organisation",
       "angle": "Étapes, distances, location, applications et imprévus.",
-      "used": false
+      "used": true
     },
     {
       "title": "Que mettre dans sa trousse à pharmacie de voyage",
       "tag": "Pratique",
       "angle": "Liste de base et adaptations selon la destination.",
-      "used": false
+      "used": true
     },
     {
       "title": "Voyage en train en Europe : le guide de l'Interrail",
