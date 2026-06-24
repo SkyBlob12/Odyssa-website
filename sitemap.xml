@@ -16,6 +16,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://odyssa-app.com/blog/destinations/islande/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://odyssa-app.com/blog/destinations/perou/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -37,6 +42,16 @@
   </url>
   <url>
     <loc>https://odyssa-app.com/blog/destinations/maroc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/la-trousse-a-pharmacie-de-voyage-ideale-conseils-et-checklist/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/comment-planifier-un-road-trip-reussi-en-voiture/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
