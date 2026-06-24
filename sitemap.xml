@@ -16,6 +16,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://odyssa-app.com/blog/destinations/tanzanie/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://odyssa-app.com/blog/destinations/japon/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -27,6 +32,16 @@
   </url>
   <url>
     <loc>https://odyssa-app.com/blog/destinations/maroc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/voyager-en-toute-securite-avec-votre-bebe-conseils-et-astuces/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/l-assurance-voyage-quelles-garanties-pour-un-voyage-serein/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -1,5 +1,25 @@
 [
   {
+    "slug": "voyager-en-toute-securite-avec-votre-bebe-conseils-et-astuces",
+    "title": "Voyager en toute sécurité avec votre bébé : conseils et astuces",
+    "tag": "Famille",
+    "tagClass": "",
+    "excerpt": "Découvrez nos conseils pour un voyage en famille réussi avec votre bébé",
+    "readingTime": "3 min de lecture",
+    "cover": "assets/blog/tips/voyager-en-toute-securite-avec-votre-bebe-conseils-et-astuces/cover.webp",
+    "date": "2026-06-24"
+  },
+  {
+    "slug": "l-assurance-voyage-quelles-garanties-pour-un-voyage-serein",
+    "title": "L'assurance voyage : quelles garanties pour un voyage serein",
+    "tag": "Pratique",
+    "tagClass": "",
+    "excerpt": "Partez en voyage avec sérénité, découvrez les garanties essentielles d'une assurance voyage",
+    "readingTime": "2 min de lecture",
+    "cover": "assets/blog/tips/l-assurance-voyage-quelles-garanties-pour-un-voyage-serein/cover.webp",
+    "date": "2026-06-24"
+  },
+  {
     "slug": "comment-eviter-et-gerer-le-decalage-horaire-lors-d-un-voyage",
     "title": "Comment éviter et gérer le décalage horaire lors d'un voyage",
     "tag": "Bien-être",

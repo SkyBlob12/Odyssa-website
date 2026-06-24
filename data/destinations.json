@@ -1,5 +1,15 @@
 [
   {
+    "slug": "tanzanie",
+    "title": "Tanzanie, terre de safaris et de plages de sable blanc",
+    "country": "Tansanie",
+    "tag": "Tanzanie",
+    "excerpt": "Safaris, plages et montagnes, la Tanzanie en juin est un paradis",
+    "readingTime": "5 min de lecture",
+    "cover": "assets/blog/destinations/tanzanie/cover.webp",
+    "date": "2026-06-24"
+  },
+  {
     "slug": "japon",
     "title": "Découvrir le Japon, un pays aux mille visages",
     "country": "Japon",
