@@ -101,8 +101,9 @@ export async function renderDestination({ content, photos, palette, slug, date, 
     ? `<div class="dest-cover"><img src="${prefix}${photos.cover}" alt="${escapeHtml(content.titleShort)}"></div>`
     : '<div class="dest-cover"></div>';
 
+  const blogPrefix = '../../'; // depuis /blog/destinations/<slug>/ vers /blog/
   const related = relatedBlock(
-    (relatedTips || []).map((t) => ({ href: `${prefix}${t.slug}/`, title: t.title }))
+    (relatedTips || []).map((t) => ({ href: `${blogPrefix}${t.slug}/`, title: t.title }))
   );
 
   const html = fillTemplate(tpl, {
@@ -159,10 +160,11 @@ export async function renderTip({ content, photo, tag, tagClass, slug, date, rel
   const ogImage = photo?.cover ? `${SITE_URL}/${photo.cover}` : `${SITE_URL}/assets/og-image.png`;
   const cover = tipCoverFigure(photo, prefix, alt);
 
+  const blogPrefix = '../'; // depuis /blog/<slug>/ vers /blog/
   const relatedItems = (related || []).map((r) =>
     r.type === 'destination'
-      ? { href: `${prefix}destinations/${r.slug}/`, title: r.title }
-      : { href: `${prefix}${r.slug}/`, title: r.title }
+      ? { href: `${blogPrefix}destinations/${r.slug}/`, title: r.title }
+      : { href: `${blogPrefix}${r.slug}/`, title: r.title }
   );
 
   const html = fillTemplate(tpl, {
