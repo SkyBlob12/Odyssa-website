@@ -16,6 +16,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://odyssa-app.com/blog/destinations/pantanal/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://odyssa-app.com/blog/destinations/islande/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -42,6 +47,16 @@
   </url>
   <url>
     <loc>https://odyssa-app.com/blog/destinations/maroc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/eviter-les-pieges-a-touristes-conseils-pour-voyager-comme-un-local/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/voyager-en-train-en-europe-avec-interrail-les-conseils-pratiques/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
