@@ -196,13 +196,13 @@ body::before{
 /* ============================================================
    ARTICLE — LAYOUT AVEC SIDEBAR
    ============================================================ */
-.article-layout{max-width:1060px;margin:0 auto;padding:0 26px;width:100%;display:flex;align-items:flex-start;gap:44px}
+.article-layout{max-width:1100px;margin:0 auto;padding:0 26px;width:100%;display:flex;align-items:flex-start;gap:32px}
 .article-layout>.article-inner{flex:1;min-width:0;max-width:680px;margin:0;padding:0}
-.article-sidebar{width:300px;flex-shrink:0}
-.article-sidebar-sticky{position:sticky;top:80px;display:flex;flex-direction:column;gap:24px}
+.article-sidebar,.article-sidebar-left{width:160px;flex-shrink:0}
+.article-sidebar-sticky,.article-sidebar-left-sticky{position:sticky;top:80px}
 @media(max-width:968px){
   .article-layout{max-width:680px;flex-direction:column;padding:0 26px}
-  .article-sidebar{display:none}
+  .article-sidebar,.article-sidebar-left{display:none}
 }
 
 /* Unités publicitaires */

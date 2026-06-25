@@ -1906,6 +1906,12 @@ img {
   text-decoration-color: var(--color-primary);
 }
 
+.legal-section .btn-modern,
+.legal-section .btn-modern:hover {
+  color: white;
+  text-decoration: none;
+}
+
 /* Legal page footer */
 .legal-footer {
   background: var(--color-white);
