@@ -77,13 +77,13 @@
       "title": "Voyage en train en Europe : le guide de l'Interrail",
       "tag": "Inspiration",
       "angle": "Pass, réservations, itinéraires et bons plans.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment éviter les pièges à touristes",
       "tag": "Astuces",
       "angle": "Repérer les arnaques courantes et manger/visiter comme un local.",
-      "used": false
+      "used": true
     },
     {
       "title": "Voyager responsable : réduire son impact sans se compliquer",
