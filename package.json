@@ -8,7 +8,9 @@
     "generate": "node scripts/generate-weekly.mjs",
     "generate:dry": "node scripts/generate-weekly.mjs --dry-run",
     "build:listings": "node scripts/generate-weekly.mjs --listings-only",
-    "backfill:tip-images": "node scripts/backfill-tip-images.mjs"
+    "backfill:tip-images": "node scripts/backfill-tip-images.mjs",
+    "social": "node scripts/social-post.mjs",
+    "social:dry": "node scripts/social-post.mjs --dry-run"
   },
   "engines": {
     "node": ">=20"

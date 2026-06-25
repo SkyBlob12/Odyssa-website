@@ -1,0 +1,55 @@
+name: Social post
+
+# Au merge des nouveaux articles (push sur main touchant blog/**),
+# publie chaque article de data/pending-social.json sur X (et Pinterest si configuré).
+# Le commit du journal ne touche que data/ → ne redéclenche pas ce workflow.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'blog/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: social-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Publier sur les réseaux
+        run: node scripts/social-post.mjs
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
+          PINTEREST_BOARD_DESTINATIONS: ${{ vars.PINTEREST_BOARD_DESTINATIONS }}
+          PINTEREST_BOARD_TIPS: ${{ vars.PINTEREST_BOARD_TIPS }}
+
+      - name: Sauvegarder le journal de publication
+        continue-on-error: true
+        run: |
+          if [[ -n "$(git status --porcelain data/social-log.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data/social-log.json
+            git commit -m "Social: journal de publication [skip ci]"
+            git push
+          else
+            echo "Journal inchangé, rien à committer."
+          fi

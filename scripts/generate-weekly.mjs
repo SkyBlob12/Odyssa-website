@@ -14,7 +14,7 @@
  */
 import { join } from 'node:path';
 import {
-  ROOT, log, slugify, readingTime, today, readJson, writeJson,
+  ROOT, SITE_URL, log, slugify, readingTime, today, readJson, writeJson,
 } from './lib/util.mjs';
 import { derivePalette, FALLBACK_PALETTE } from './lib/palette.mjs';
 import { fetchDestinationPhotos, generatePlaceholderPhotos, fetchTipPhoto, generatePlaceholderTipPhoto } from './lib/photos.mjs';
@@ -184,20 +184,23 @@ async function main() {
   const backlog = await readJson(join(ROOT, 'data/tips-backlog.json'));
   const takenDestSlugs = new Set(registries.destinations.map((d) => d.slug));
   const takenTipSlugs = new Set(registries.tips.map((t) => t.slug));
+  const created = []; // articles produits ce run → pour les posts sociaux
 
   // 1) Destination depuis Notion (ou fixture en dry-run)
   let madeDestination = false;
   let notionPage = null;
   if (DRY) {
     const f = fixtureDestination();
-    await makeDestination({ name: f.name, country: f.country }, registries, takenDestSlugs);
+    const entry = await makeDestination({ name: f.name, country: f.country }, registries, takenDestSlugs);
+    created.push({ type: 'destination', entry });
     madeDestination = true;
   } else {
     const queue = await fetchDestinationsToPublish(env('NOTION_TOKEN'), env('NOTION_DB_ID'));
     const next = queue.find((d) => !takenDestSlugs.has(slugify(d.name)));
     if (next) {
       notionPage = next;
-      await makeDestination({ name: next.name, country: next.country, angle: next.angle, month: next.month }, registries, takenDestSlugs);
+      const entry = await makeDestination({ name: next.name, country: next.country, angle: next.angle, month: next.month }, registries, takenDestSlugs);
+      created.push({ type: 'destination', entry });
       madeDestination = true;
     } else {
       log('Aucune destination en file → 3 conseils cette semaine.');
@@ -209,7 +212,8 @@ async function main() {
   const existingTitles = [...registries.tips.map((t) => t.title), ...backlog.topics.filter((t) => t.used).map((t) => t.title)];
   const topics = await pickTipTopics(tipsTarget, backlog, existingTitles);
   for (const topic of topics) {
-    await makeTip(topic, registries, takenTipSlugs);
+    const entry = await makeTip(topic, registries, takenTipSlugs);
+    created.push({ type: 'tip', entry });
     topic.used = true;
   }
   if (topics.length < tipsTarget) log(`⚠ Seulement ${topics.length}/${tipsTarget} sujets tips disponibles dans le backlog.`);
@@ -218,6 +222,23 @@ async function main() {
   await writeJson(join(ROOT, 'data/destinations.json'), registries.destinations);
   await writeJson(join(ROOT, 'data/tips.json'), registries.tips);
   await writeJson(join(ROOT, 'data/tips-backlog.json'), backlog);
+
+  // 3bis) File des posts sociaux (consommée par scripts/social-post.mjs au merge)
+  const pendingSocial = created.map(({ type, entry }) => ({
+    type,
+    slug: entry.slug,
+    title: entry.title,
+    excerpt: entry.excerpt || '',
+    tag: entry.tag || '',
+    country: entry.country || '',
+    url: type === 'destination'
+      ? `${SITE_URL}/blog/destinations/${entry.slug}/`
+      : `${SITE_URL}/blog/${entry.slug}/`,
+    image: entry.cover ? `${SITE_URL}/${entry.cover}` : null,
+    date: entry.date,
+  }));
+  await writeJson(join(ROOT, 'data/pending-social.json'), pendingSocial);
+  log(`File sociale écrite : ${pendingSocial.length} article(s).`);
 
   // 4) Listings + sitemap
   await rebuildListings();
