@@ -53,20 +53,20 @@ export async function rebuildListings() {
   const destinations = (await readJson(join(ROOT, 'data/destinations.json'))).sort(byDateDesc);
   const tips = (await readJson(join(ROOT, 'data/tips.json'))).sort(byDateDesc);
 
-  // --- blog/index.html : section Destinations (limitée à 4) + section Conseils ---
+  // --- blog/index.html : section Destinations (limitée à 6) + section Conseils (limitée à 6) ---
   const blogIndexPath = join(ROOT, 'blog/index.html');
   let blogIndex = await readText(blogIndexPath);
   blogIndex = replaceBetween(
     blogIndex,
     '<!-- AUTO:DEST_CARDS:START -->',
     '<!-- AUTO:DEST_CARDS:END -->',
-    destinations.slice(0, 4).map((d) => destCard(d, { hrefBase: 'destinations/', photoPrefix: '../' })).join('\n\n')
+    destinations.slice(0, 6).map((d) => destCard(d, { hrefBase: 'destinations/', photoPrefix: '../' })).join('\n\n')
   );
   blogIndex = replaceBetween(
     blogIndex,
     '<!-- AUTO:TIPS_CARDS:START -->',
     '<!-- AUTO:TIPS_CARDS:END -->',
-    tips.map((t) => tipCard(t, { hrefBase: '', photoPrefix: '../' })).join('\n\n')
+    tips.slice(0, 6).map((t) => tipCard(t, { hrefBase: '', photoPrefix: '../' })).join('\n\n')
   );
   await writeText(blogIndexPath, blogIndex);
 
@@ -80,6 +80,17 @@ export async function rebuildListings() {
     destinations.map((d) => destCard(d, { hrefBase: '', photoPrefix: '../../' })).join('\n\n')
   );
   await writeText(destIndexPath, destIndex);
+
+  // --- blog/conseils/index.html : tous les conseils ---
+  const conseilsIndexPath = join(ROOT, 'blog/conseils/index.html');
+  let conseilsIndex = await readText(conseilsIndexPath);
+  conseilsIndex = replaceBetween(
+    conseilsIndex,
+    '<!-- AUTO:TIPS_CARDS:START -->',
+    '<!-- AUTO:TIPS_CARDS:END -->',
+    tips.map((t) => tipCard(t, { hrefBase: '../', photoPrefix: '../../' })).join('\n\n')
+  );
+  await writeText(conseilsIndexPath, conseilsIndex);
 }
 
 /** Régénère sitemap.xml à partir des pages statiques + registres. */
@@ -94,6 +105,7 @@ export async function rebuildSitemap() {
     url(`${SITE_URL}/`, 'weekly', '1.0'),
     url(`${SITE_URL}/blog/`, 'weekly', '0.8'),
     url(`${SITE_URL}/blog/destinations/`, 'weekly', '0.8'),
+    url(`${SITE_URL}/blog/conseils/`, 'weekly', '0.8'),
     ...destinations.map((d) => url(`${SITE_URL}/blog/destinations/${d.slug}/`, 'monthly', '0.7')),
     ...tips.map((t) => url(`${SITE_URL}/blog/${t.slug}/`, 'monthly', '0.7')),
     url(`${SITE_URL}/support/`, 'monthly', '0.5'),

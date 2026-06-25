@@ -79,6 +79,7 @@ body::before{
 .blog-section-head h2{font-family:var(--disp);font-size:38px;letter-spacing:.04em;color:var(--c-primary);white-space:nowrap}
 .blog-section-head .rule{flex:1;height:3px;background:var(--c-accent)}
 .blog-section-intro{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--c-ink);opacity:.8;margin:-12px 0 24px}
+.blog-section-more{text-align:center;margin-top:36px}
 
 .blog-grid{display:grid;grid-template-columns:1fr;gap:26px}
 @media(min-width:560px){.blog-grid{grid-template-columns:repeat(auto-fill,minmax(310px,1fr))}}
