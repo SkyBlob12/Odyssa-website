@@ -116,6 +116,7 @@ Structure attendue : un objet JSON avec ces clés :
 - facts : objet { period (meilleure période), budget (par jour, ex "60–90 €"), duration (durée idéale), currency (monnaie) }.
 - sections : tableau de 8 à 9 objets. Chaque section : kicker ("01 · Pourquoi y aller"), heading (titre court), paragraphs (tableau de 1-3 paragraphes riches), bullets (tableau optionnel), pull (citation en exergue optionnelle, une seule sur tout l'article).
   Couvre : pourquoi y aller, quand partir, les quartiers/zones, à voir & à faire, gastronomie, où dormir, budget & bons plans, se déplacer, conseils pratiques.
+- photoQuery : 3 à 5 mots-clés EN ANGLAIS pour trouver des photos emblématiques du lieu sur Unsplash. Privilégie les éléments visuels distinctifs : paysages iconiques, monuments, nature typique, scènes de vie locales (ex. "Iceland northern lights aurora", "Peru Machu Picchu mountains", "Morocco Marrakech medina souk"). Évite les termes trop génériques comme "travel" ou "vacation".
 - tip : le "conseil Odyssa" final, lié à l'organisation/itinéraire avec l'app (1-2 phrases).
 `;
   log(`LLM → destination "${name}"`);

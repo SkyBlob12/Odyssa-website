@@ -111,7 +111,7 @@ async function makeDestination({ name, country, angle, month }, registries, take
   const absDir = join(ROOT, relRoot);
   const photos = DRY
     ? await generatePlaceholderPhotos({ absDir, relDir: relRoot })
-    : await fetchDestinationPhotos({ query: `${content.titleShort} ${content.country}`.trim(), slug, absDir, relDir: relRoot }, env('UNSPLASH_KEY'));
+    : await fetchDestinationPhotos({ query: content.photoQuery || `${content.titleShort} ${content.country}`.trim(), slug, absDir, relDir: relRoot }, env('UNSPLASH_KEY'));
 
   const palette = photos.dominant ? derivePalette(photos.dominant) : FALLBACK_PALETTE;
 
