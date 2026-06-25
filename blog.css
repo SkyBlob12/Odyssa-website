@@ -193,6 +193,26 @@ body::before{
 .dest-related a .arrow,.article-related a .arrow{font-family:var(--disp);color:var(--c-primary);letter-spacing:.1em}
 
 /* ============================================================
+   ARTICLE — LAYOUT AVEC SIDEBAR
+   ============================================================ */
+.article-layout{max-width:1060px;margin:0 auto;padding:0 26px;width:100%;display:flex;align-items:flex-start;gap:44px}
+.article-layout>.article-inner{flex:1;min-width:0;max-width:680px;margin:0;padding:0}
+.article-sidebar{width:300px;flex-shrink:0}
+.article-sidebar-sticky{position:sticky;top:80px;display:flex;flex-direction:column;gap:24px}
+@media(max-width:968px){
+  .article-layout{max-width:680px;flex-direction:column;padding:0 26px}
+  .article-sidebar{display:none}
+}
+
+/* Unités publicitaires */
+.ad-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in srgb,var(--c-ink) 40%,transparent);text-align:center;margin-bottom:6px}
+.ad-unit{border:1px solid var(--line);padding:8px;background:color-mix(in srgb,var(--c-paper) 60%,white)}
+
+/* Banner publicitaire au-dessus du footer */
+.ad-footer-section{border-top:2px dashed var(--line);padding:22px 26px;text-align:center;background:color-mix(in srgb,var(--c-ink) 3%,var(--c-paper))}
+.ad-footer-inner{max-width:760px;margin:0 auto}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 .legal-footer{background:var(--c-primary);color:var(--c-paper);padding:40px 26px}
