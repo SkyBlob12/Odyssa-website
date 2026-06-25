@@ -1,5 +1,15 @@
 [
   {
+    "slug": "pantanal",
+    "title": "Pantanal, le plus grand biome d'Amérique du Sud",
+    "country": "Brésil",
+    "tag": "Brésil",
+    "excerpt": "Explorez le Pantanal, une destination unique pour les amoureux de la nature",
+    "readingTime": "3 min de lecture",
+    "cover": "assets/blog/destinations/pantanal/cover.webp",
+    "date": "2026-06-25"
+  },
+  {
     "slug": "islande",
     "title": "Islande, terre de feu et de glace",
     "country": "Islande",
