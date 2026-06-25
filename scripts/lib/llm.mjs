@@ -114,8 +114,9 @@ Structure attendue : un objet JSON avec ces clés :
 - excerpt : accroche pour la carte du blog, ~140 caractères.
 - intro : paragraphe d'introduction immersif (3-4 phrases).
 - facts : objet { period (meilleure période), budget (par jour, ex "60–90 €"), duration (durée idéale), currency (monnaie) }.
-- sections : tableau de 8 à 9 objets. Chaque section : kicker ("01 · Pourquoi y aller"), heading (titre court), paragraphs (tableau de 1-3 paragraphes riches), bullets (tableau optionnel), pull (citation en exergue optionnelle, une seule sur tout l'article).
-  Couvre : pourquoi y aller, quand partir, les quartiers/zones, à voir & à faire, gastronomie, où dormir, budget & bons plans, se déplacer, conseils pratiques.
+- sections : tableau de 8 à 9 objets. Chaque section : kicker ("01 · Pourquoi y aller"), heading (formulé comme une question ou un angle concret — ex. "Quand partir au Japon : quelle est la meilleure saison ?", "Que faire à Lisbonne : les incontournables", "Combien coûte un voyage au Maroc ?"), paragraphs (tableau de 1-3 paragraphes riches), bullets (tableau optionnel), pull (citation en exergue optionnelle, une seule sur tout l'article).
+  Couvre obligatoirement dans cet ordre : (1) pourquoi y aller, (2) quelle est la meilleure période (quand partir), (3) les quartiers et zones à explorer, (4) que voir et que faire (incontournables), (5) gastronomie et spécialités locales, (6) où dormir selon son budget, (7) combien coûte un voyage (budget et bons plans), (8) comment se déplacer sur place, (9) conseils pratiques avant de partir.
+- faq : tableau de 5 objets {question, answer}. Questions réelles que les voyageurs tapent sur Google à propos de cette destination (ex. "Faut-il un visa pour aller au Japon ?", "Quelle est la monnaie au Pérou ?", "Combien de jours pour visiter l'Islande ?", "Quelle est la météo au Maroc en mars ?"). Réponses directes, factuelles, 2-4 phrases max.
 - photoQuery : 3 à 5 mots-clés EN ANGLAIS pour trouver des photos emblématiques du lieu sur Unsplash. Privilégie les éléments visuels distinctifs : paysages iconiques, monuments, nature typique, scènes de vie locales (ex. "Iceland northern lights aurora", "Peru Machu Picchu mountains", "Morocco Marrakech medina souk"). Évite les termes trop génériques comme "travel" ou "vacation".
 - tip : le "conseil Odyssa" final, lié à l'organisation/itinéraire avec l'app (1-2 phrases).
 `;
@@ -137,6 +138,7 @@ Structure attendue : un objet JSON avec ces clés :
 - photoQuery : 2 à 4 mots-clés EN ANGLAIS pour trouver une photo de couverture pertinente et concrète sur Unsplash (ex. "packing suitcase travel", "airport departure board", "budget travel backpacker"). Privilégie un sujet visuel et photographiable, pas un concept abstrait.
 - intro : introduction engageante (2-3 phrases).
 - sections : tableau de 4 à 6 objets, chacun avec heading, paragraphs (tableau de 1-3) et bullets (tableau optionnel) — privilégie le concret et l'actionnable.
+- faq : tableau de 4 objets {question, answer}. Questions fréquentes sur ce sujet, formulées comme des requêtes Google réelles. Réponses directes en 1-3 phrases.
 - tip : le "conseil Odyssa" final, lié à l'app (1-2 phrases).
 `;
   log(`LLM → tip "${title}"`);

@@ -53,6 +53,37 @@ function fullBlock(photos, prefix, alt) {
   return `        <figure class="dest-full"><img src="${prefix}${photos.full}" alt="${escapeHtml(alt)}" loading="lazy"></figure>\n        <p class="dest-cap">${creditLine(a)}</p>`;
 }
 
+function faqSchema(faq) {
+  if (!faq?.length) return '';
+  const entities = faq
+    .map((q) => `    { "@type": "Question", "name": ${JSON.stringify(q.question)}, "acceptedAnswer": { "@type": "Answer", "text": ${JSON.stringify(q.answer)} } }`)
+    .join(',\n');
+  return `  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+${entities}
+    ]
+  }
+  </script>`;
+}
+
+function faqHtml(faq, titleShort = '') {
+  if (!faq?.length) return '';
+  const heading = titleShort ? `Questions fréquentes sur ${escapeHtml(titleShort)}` : 'Questions fréquentes';
+  const items = faq
+    .map((q) => `        <details class="faq-item">
+          <summary>${escapeHtml(q.question)}</summary>
+          <div class="faq-answer"><p>${escapeHtml(q.answer)}</p></div>
+        </details>`)
+    .join('\n');
+  return `        <div class="faq-section">
+          <h2>${heading}</h2>
+${items}
+        </div>`;
+}
+
 function relatedBlock(items, indent = '          ') {
   return items
     .map((it) => `${indent}<a href="${it.href}">${escapeHtml(it.title)} <span class="arrow">→</span></a>`)
@@ -131,6 +162,8 @@ export async function renderDestination({ content, photos, palette, slug, date, 
     C_INK: palette.ink,
     COVER: cover,
     SECTIONS: destSections(content.sections, photos, prefix, content.titleShort),
+    FAQ_SCHEMA: faqSchema(content.faq),
+    FAQ_SECTION: faqHtml(content.faq, content.titleShort),
     TIP: inline(content.tip),
     RELATED: related,
     SHARE_URL: encodeURIComponent(url),
@@ -180,6 +213,8 @@ export async function renderTip({ content, photo, tag, tagClass, slug, date, rel
     COVER: cover,
     INTRO: inline(content.intro),
     SECTIONS: tipSections(content.sections),
+    FAQ_SCHEMA: faqSchema(content.faq),
+    FAQ_SECTION: faqHtml(content.faq, content.titleShort || content.title),
     TIP: inline(content.tip),
     RELATED: relatedBlock(relatedItems),
     SHARE_URL: encodeURIComponent(url),

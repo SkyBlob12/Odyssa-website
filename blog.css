@@ -225,3 +225,18 @@ body::before{
 .footer-social{display:flex;gap:16px;justify-content:center}
 .footer-social a{color:var(--c-paper);opacity:.8;transition:opacity .2s,color .2s}
 .footer-social a:hover{opacity:1;color:var(--c-accent)}
+
+/* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
+.faq-section{margin:2.5rem 0}
+.faq-section>h2{font-family:var(--font-serif);font-size:1.35rem;margin-bottom:1rem;color:var(--c-ink)}
+.faq-item{border:1px solid var(--line);border-radius:8px;margin-bottom:.5rem;overflow:hidden;background:var(--c-paper)}
+.faq-item summary{cursor:pointer;padding:.9rem 1.1rem;font-weight:600;font-size:.92rem;color:var(--c-ink);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:background .15s}
+.faq-item summary:hover{background:color-mix(in srgb,var(--c-accent) 5%,var(--c-paper))}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"＋";font-size:1rem;flex-shrink:0;color:var(--c-accent);transition:transform .2s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item[open]{background:color-mix(in srgb,var(--c-accent) 4%,var(--c-paper))}
+.faq-answer{padding:.5rem 1.1rem .9rem;font-size:.88rem;line-height:1.7;color:color-mix(in srgb,var(--c-ink) 80%,transparent)}
+.faq-answer p{margin:0}
