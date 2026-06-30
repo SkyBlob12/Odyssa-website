@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "type": "destination",
+    "slug": "iles-feroes",
+    "title": "Iles Féroés en 7 jours : comment découvrir ces îles nordiques ?",
+    "excerpt": "Iles Féroés, un voyage inoubliable dans l'Europe du Nord",
+    "tag": "Danemark",
+    "country": "Iles Féroés",
+    "url": "https://odyssa-app.com/blog/destinations/iles-feroes/",
+    "image": "https://odyssa-app.com/assets/blog/destinations/iles-feroes/cover.webp",
+    "date": "2026-06-29"
+  },
+  {
+    "type": "tip",
+    "slug": "comment-voyager-de-maniere-responsable-7-conseils-pratiques",
+    "title": "Comment voyager de manière responsable : 7 conseils pratiques",
+    "excerpt": "Voyager responsable, c'est possible : découvrez nos conseils pour minimiser votre impact",
+    "tag": "Éco-voyage",
+    "country": "",
+    "url": "https://odyssa-app.com/blog/comment-voyager-de-maniere-responsable-7-conseils-pratiques/",
+    "image": "https://odyssa-app.com/assets/blog/tips/comment-voyager-de-maniere-responsable-7-conseils-pratiques/cover.webp",
+    "date": "2026-06-29"
+  },
+  {
+    "type": "tip",
+    "slug": "le-guide-complet-pour-preparer-un-voyage-longue-duree-ou-un-tour-du-mo",
+    "title": "Le guide complet pour préparer un voyage longue durée ou un tour du monde",
+    "excerpt": "Découvrez les étapes clés pour préparer un voyage inoubliable",
+    "tag": "Organisation",
+    "country": "",
+    "url": "https://odyssa-app.com/blog/le-guide-complet-pour-preparer-un-voyage-longue-duree-ou-un-tour-du-mo/",
+    "image": "https://odyssa-app.com/assets/blog/tips/le-guide-complet-pour-preparer-un-voyage-longue-duree-ou-un-tour-du-mo/cover.webp",
+    "date": "2026-06-29"
+  }
+]
