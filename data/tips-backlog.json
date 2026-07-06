@@ -101,13 +101,13 @@
       "title": "Comment rester connecté à l'étranger (eSIM, wifi, forfaits)",
       "tag": "Pratique",
       "angle": "Solutions data, coûts, conseils selon la zone.",
-      "used": false
+      "used": true
     },
     {
       "title": "Voyage en amoureux : idées et organisation",
       "tag": "Inspiration",
       "angle": "Destinations, surprises, équilibre du programme.",
-      "used": false
+      "used": true
     },
     {
       "title": "Que faire en cas de vol ou perte de papiers à l'étranger",
