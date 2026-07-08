@@ -89,25 +89,25 @@
       "title": "Voyager responsable : réduire son impact sans se compliquer",
       "tag": "Éco-voyage",
       "angle": "Transports, hébergements, consommation et respect des lieux.",
-      "used": false
+      "used": true
     },
     {
       "title": "Préparer un voyage longue durée ou un tour du monde",
       "tag": "Organisation",
       "angle": "Budget, itinéraire, administratif, sac à dos, rythme.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment rester connecté à l'étranger (eSIM, wifi, forfaits)",
       "tag": "Pratique",
       "angle": "Solutions data, coûts, conseils selon la zone.",
-      "used": false
+      "used": true
     },
     {
       "title": "Voyage en amoureux : idées et organisation",
       "tag": "Inspiration",
       "angle": "Destinations, surprises, équilibre du programme.",
-      "used": false
+      "used": true
     },
     {
       "title": "Que faire en cas de vol ou perte de papiers à l'étranger",

@@ -1,5 +1,45 @@
 [
   {
+    "slug": "comment-planifier-un-voyage-en-amoureux-conseils-et-idees",
+    "title": "Comment planifier un voyage en amoureux : conseils et idées",
+    "tag": "Inspiration",
+    "tagClass": "",
+    "excerpt": "Planifiez un voyage en amoureux avec nos conseils et idées pour un séjour inoubliable",
+    "readingTime": "3 min de lecture",
+    "cover": "assets/blog/tips/comment-planifier-un-voyage-en-amoureux-conseils-et-idees/cover.webp",
+    "date": "2026-07-06"
+  },
+  {
+    "slug": "comment-rester-connecte-a-l-etranger-avec-une-esim-du-wifi-et-des-forf",
+    "title": "Comment rester connecté à l'étranger avec une eSIM, du wifi et des forfaits",
+    "tag": "Pratique",
+    "tagClass": "",
+    "excerpt": "Restez connectés partout dans le monde avec ces astuces pratiques",
+    "readingTime": "2 min de lecture",
+    "cover": "assets/blog/tips/comment-rester-connecte-a-l-etranger-avec-une-esim-du-wifi-et-des-forf/cover.webp",
+    "date": "2026-07-06"
+  },
+  {
+    "slug": "le-guide-complet-pour-preparer-un-voyage-longue-duree-ou-un-tour-du-mo",
+    "title": "Le guide complet pour préparer un voyage longue durée ou un tour du monde",
+    "tag": "Organisation",
+    "tagClass": "",
+    "excerpt": "Découvrez les étapes clés pour préparer un voyage inoubliable",
+    "readingTime": "3 min de lecture",
+    "cover": "assets/blog/tips/le-guide-complet-pour-preparer-un-voyage-longue-duree-ou-un-tour-du-mo/cover.webp",
+    "date": "2026-06-29"
+  },
+  {
+    "slug": "comment-voyager-de-maniere-responsable-7-conseils-pratiques",
+    "title": "Comment voyager de manière responsable : 7 conseils pratiques",
+    "tag": "Éco-voyage",
+    "tagClass": "",
+    "excerpt": "Voyager responsable, c'est possible : découvrez nos conseils pour minimiser votre impact",
+    "readingTime": "3 min de lecture",
+    "cover": "assets/blog/tips/comment-voyager-de-maniere-responsable-7-conseils-pratiques/cover.webp",
+    "date": "2026-06-29"
+  },
+  {
     "slug": "eviter-les-pieges-a-touristes-conseils-pour-voyager-comme-un-local",
     "title": "Éviter les pièges à touristes : conseils pour voyager comme un local",
     "tag": "Astuces",

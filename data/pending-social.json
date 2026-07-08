@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "type": "destination",
+    "slug": "polynesie-francaise",
+    "title": "Polynésie Française en été : que faire et que voir en juillet ?",
+    "excerpt": "Polynésie Française, l'archipel idéal pour un voyage ensoleillé",
+    "tag": "France",
+    "country": "France",
+    "url": "https://odyssa-app.com/blog/destinations/polynesie-francaise/",
+    "image": "https://odyssa-app.com/assets/blog/destinations/polynesie-francaise/cover.webp",
+    "date": "2026-07-06"
+  },
+  {
+    "type": "tip",
+    "slug": "comment-rester-connecte-a-l-etranger-avec-une-esim-du-wifi-et-des-forf",
+    "title": "Comment rester connecté à l'étranger avec une eSIM, du wifi et des forfaits",
+    "excerpt": "Restez connectés partout dans le monde avec ces astuces pratiques",
+    "tag": "Pratique",
+    "country": "",
+    "url": "https://odyssa-app.com/blog/comment-rester-connecte-a-l-etranger-avec-une-esim-du-wifi-et-des-forf/",
+    "image": "https://odyssa-app.com/assets/blog/tips/comment-rester-connecte-a-l-etranger-avec-une-esim-du-wifi-et-des-forf/cover.webp",
+    "date": "2026-07-06"
+  },
+  {
+    "type": "tip",
+    "slug": "comment-planifier-un-voyage-en-amoureux-conseils-et-idees",
+    "title": "Comment planifier un voyage en amoureux : conseils et idées",
+    "excerpt": "Planifiez un voyage en amoureux avec nos conseils et idées pour un séjour inoubliable",
+    "tag": "Inspiration",
+    "country": "",
+    "url": "https://odyssa-app.com/blog/comment-planifier-un-voyage-en-amoureux-conseils-et-idees/",
+    "image": "https://odyssa-app.com/assets/blog/tips/comment-planifier-un-voyage-en-amoureux-conseils-et-idees/cover.webp",
+    "date": "2026-07-06"
+  }
+]

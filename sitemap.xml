@@ -21,6 +21,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://odyssa-app.com/blog/destinations/polynesie-francaise/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/destinations/iles-feroes/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://odyssa-app.com/blog/destinations/pantanal/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -52,6 +62,26 @@
   </url>
   <url>
     <loc>https://odyssa-app.com/blog/destinations/maroc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/comment-planifier-un-voyage-en-amoureux-conseils-et-idees/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/comment-rester-connecte-a-l-etranger-avec-une-esim-du-wifi-et-des-forf/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/le-guide-complet-pour-preparer-un-voyage-longue-duree-ou-un-tour-du-mo/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/comment-voyager-de-maniere-responsable-7-conseils-pratiques/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -134,11 +164,6 @@
     <loc>https://odyssa-app.com/blog/checklist-voyage-famille/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://odyssa-app.com/about/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://odyssa-app.com/support/</loc>
