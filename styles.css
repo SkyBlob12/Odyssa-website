@@ -296,6 +296,8 @@ img {
 .hero-cta-center {
   display: flex;
   justify-content: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
   width: 100%;
   grid-column: 1 / -1;
 }
@@ -1575,6 +1577,20 @@ img {
   color: white;
   transform: scale(1.04);
   box-shadow: 0 4px 20px rgba(37, 99, 235, 0.5);
+}
+
+.sticky-cta-btns {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+}
+
+.sticky-cta-btn-icon {
+  padding: 0.55rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  justify-content: center;
 }
 
 /* ========================================

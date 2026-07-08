@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /privacy-policy/
-Disallow: /terms/
 
 Sitemap: https://odyssa-app.com/sitemap.xml
