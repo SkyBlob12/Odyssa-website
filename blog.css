@@ -58,7 +58,7 @@ body::before{
 .blog-navbar-links a{color:var(--c-paper);text-decoration:none;opacity:.9;font-weight:500;transition:opacity .2s}
 .blog-navbar-links a:hover{opacity:1}
 .blog-navbar-cta{display:inline-flex!important;align-items:center;gap:8px;border:2px solid var(--c-accent);color:var(--c-accent)!important;padding:6px 14px;font-weight:700!important;letter-spacing:.04em;text-transform:uppercase;font-size:12px;transition:background .2s,color .2s}
-.blog-navbar-cta:hover{background:var(--c-accent);color:var(--c-primary)!important}
+.blog-navbar-cta:hover{background:var(--c-accent);color:var(--c-ink)!important}
 
 /* ============================================================
    HERO DU LISTING
@@ -177,14 +177,17 @@ body::before{
 
 .article-cta{background:var(--c-primary);color:var(--c-paper);padding:34px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px}
 .article-cta p{font-family:var(--serif);font-size:20px;line-height:1.5;margin:0}
-.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--c-accent);color:var(--c-primary);text-decoration:none;padding:12px 26px;font-family:var(--disp);font-size:18px;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--c-accent);transition:background .2s,color .2s}
-.btn-primary:hover{background:transparent;color:var(--c-accent)}
+/* Texte en encre plutôt qu'en --c-primary, qui varie selon la destination et peut être trop proche du moutarde */
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--c-accent);color:var(--c-ink);text-decoration:none;padding:12px 26px;font-family:var(--disp);font-size:18px;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--c-accent);transition:transform .2s,box-shadow .2s,background .2s,color .2s}
+.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--c-ink)}
 .btn-primary svg{width:18px;height:18px;flex:0 0 auto}
 
-/* Boutons stores du CTA d'article (iOS + Android) */
+/* Boutons stores du CTA d'article (iOS + Android).
+   Le fond du CTA est --c-primary, dont la teinte suit la photo de couverture : les deux
+   boutons sont en papier/encre, seule combinaison lisible sur toutes les palettes possibles. */
 .article-cta-stores{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
-.btn-primary-ghost{background:transparent;color:var(--c-accent)}
-.btn-primary-ghost:hover{background:var(--c-accent);color:var(--c-primary)}
+.article-cta .btn-primary{background:var(--c-paper);color:var(--c-ink);border-color:var(--c-paper)}
+.article-cta .btn-primary:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 rgba(0,0,0,.35)}
 
 .article-share{margin-top:42px;padding-top:24px;border-top:2px dashed var(--c-ink)}
 .article-share-label{font-family:var(--disp);font-size:18px;letter-spacing:.14em;color:var(--c-warm);text-transform:uppercase;margin-bottom:14px}
