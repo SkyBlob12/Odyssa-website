@@ -42,7 +42,7 @@
       </a>
       <nav class="blog-navbar-links">
         <a href="../">Accueil</a>
-        <a href="https://apps.apple.com/fr/app/odyssa/id6758266472" class="blog-navbar-cta" target="_blank" rel="noopener">Télécharger</a>
+        <a href="https://apps.apple.com/fr/app/odyssa/id6758266472" class="blog-navbar-cta" target="_blank" rel="noopener" data-store-cta>Télécharger</a>
       </nav>
     </div>
   </header>
@@ -286,6 +286,14 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    if (/android/i.test(navigator.userAgent)) {
+      document.querySelectorAll('[data-store-cta]').forEach(function (a) {
+        a.href = 'https://play.google.com/store/apps/details?id=app.odyssa.travel&hl=fr';
+      });
+    }
+  </script>
 
 </body>
 </html>

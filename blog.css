@@ -177,8 +177,14 @@ body::before{
 
 .article-cta{background:var(--c-primary);color:var(--c-paper);padding:34px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px}
 .article-cta p{font-family:var(--serif);font-size:20px;line-height:1.5;margin:0}
-.btn-primary{display:inline-block;background:var(--c-accent);color:var(--c-primary);text-decoration:none;padding:12px 26px;font-family:var(--disp);font-size:18px;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--c-accent);transition:background .2s,color .2s}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--c-accent);color:var(--c-primary);text-decoration:none;padding:12px 26px;font-family:var(--disp);font-size:18px;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--c-accent);transition:background .2s,color .2s}
 .btn-primary:hover{background:transparent;color:var(--c-accent)}
+.btn-primary svg{width:18px;height:18px;flex:0 0 auto}
+
+/* Boutons stores du CTA d'article (iOS + Android) */
+.article-cta-stores{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.btn-primary-ghost{background:transparent;color:var(--c-accent)}
+.btn-primary-ghost:hover{background:var(--c-accent);color:var(--c-primary)}
 
 .article-share{margin-top:42px;padding-top:24px;border-top:2px dashed var(--c-ink)}
 .article-share-label{font-family:var(--disp);font-size:18px;letter-spacing:.14em;color:var(--c-warm);text-transform:uppercase;margin-bottom:14px}

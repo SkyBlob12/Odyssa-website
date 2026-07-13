@@ -2029,6 +2029,13 @@ img {
   line-height: 1.6;
 }
 
+.support-card-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-3);
+}
+
 .btn-modern {
   display: inline-flex;
   align-items: center;
