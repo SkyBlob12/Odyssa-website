@@ -1,35 +1,35 @@
 [
   {
-    "type": "destination",
-    "slug": "polynesie-francaise",
-    "title": "Polynésie Française en été : que faire et que voir en juillet ?",
-    "excerpt": "Polynésie Française, l'archipel idéal pour un voyage ensoleillé",
-    "tag": "France",
-    "country": "France",
-    "url": "https://odyssa-app.com/blog/destinations/polynesie-francaise/",
-    "image": "https://odyssa-app.com/assets/blog/destinations/polynesie-francaise/cover.webp",
-    "date": "2026-07-06"
-  },
-  {
     "type": "tip",
-    "slug": "comment-rester-connecte-a-l-etranger-avec-une-esim-du-wifi-et-des-forf",
-    "title": "Comment rester connecté à l'étranger avec une eSIM, du wifi et des forfaits",
-    "excerpt": "Restez connectés partout dans le monde avec ces astuces pratiques",
+    "slug": "que-faire-en-cas-de-perte-ou-de-vol-de-papiers-a-l-etranger",
+    "title": "Que faire en cas de perte ou de vol de papiers à l'étranger ?",
+    "excerpt": "Perte de passeport, vol de carte bancaire : que faire ?",
     "tag": "Pratique",
     "country": "",
-    "url": "https://odyssa-app.com/blog/comment-rester-connecte-a-l-etranger-avec-une-esim-du-wifi-et-des-forf/",
-    "image": "https://odyssa-app.com/assets/blog/tips/comment-rester-connecte-a-l-etranger-avec-une-esim-du-wifi-et-des-forf/cover.webp",
-    "date": "2026-07-06"
+    "url": "https://odyssa-app.com/blog/que-faire-en-cas-de-perte-ou-de-vol-de-papiers-a-l-etranger/",
+    "image": "https://odyssa-app.com/assets/blog/tips/que-faire-en-cas-de-perte-ou-de-vol-de-papiers-a-l-etranger/cover.webp",
+    "date": "2026-07-13"
   },
   {
     "type": "tip",
-    "slug": "comment-planifier-un-voyage-en-amoureux-conseils-et-idees",
-    "title": "Comment planifier un voyage en amoureux : conseils et idées",
-    "excerpt": "Planifiez un voyage en amoureux avec nos conseils et idées pour un séjour inoubliable",
-    "tag": "Inspiration",
+    "slug": "comment-photographier-ses-voyages-comme-un-pro-conseils-et-astuces",
+    "title": "Comment photographier ses voyages comme un pro : conseils et astuces",
+    "excerpt": "Apprenez à photographier vos voyages comme un professionnel",
+    "tag": "Astuces",
     "country": "",
-    "url": "https://odyssa-app.com/blog/comment-planifier-un-voyage-en-amoureux-conseils-et-idees/",
-    "image": "https://odyssa-app.com/assets/blog/tips/comment-planifier-un-voyage-en-amoureux-conseils-et-idees/cover.webp",
-    "date": "2026-07-06"
+    "url": "https://odyssa-app.com/blog/comment-photographier-ses-voyages-comme-un-pro-conseils-et-astuces/",
+    "image": "https://odyssa-app.com/assets/blog/tips/comment-photographier-ses-voyages-comme-un-pro-conseils-et-astuces/cover.webp",
+    "date": "2026-07-13"
+  },
+  {
+    "type": "tip",
+    "slug": "comment-trouver-les-bonnes-adresses-pour-manger-local-en-voyage",
+    "title": "Comment trouver les bonnes adresses pour manger local en voyage",
+    "excerpt": "Mangez comme un local et découvrez les saveurs authentiques de vos destinations",
+    "tag": "Gastronomie",
+    "country": "",
+    "url": "https://odyssa-app.com/blog/comment-trouver-les-bonnes-adresses-pour-manger-local-en-voyage/",
+    "image": "https://odyssa-app.com/assets/blog/tips/comment-trouver-les-bonnes-adresses-pour-manger-local-en-voyage/cover.webp",
+    "date": "2026-07-13"
   }
 ]
