@@ -18,7 +18,7 @@ import { rebuildListings } from './lib/listings.mjs';
 
 const DRY = process.argv.slice(2).includes('--dry-run');
 const env = (k) => process.env[k];
-const OG_DEFAULT = `${SITE_URL}/assets/og-image.png`;
+const OG_DEFAULT = `${SITE_URL}/assets/miniature-odyssa.png`;
 const BODY_ANCHOR = '\n      <div class="article-body">';
 
 async function main() {

@@ -126,7 +126,7 @@ export async function renderDestination({ content, photos, palette, slug, date, 
   const prefix = '../../../'; // depuis /blog/destinations/<slug>/
   const alt = `${content.titleShort} — ${content.titleShort}`;
   const url = `${SITE_URL}/blog/destinations/${slug}/`;
-  const ogImage = photos.cover ? `${SITE_URL}/${photos.cover}` : `${SITE_URL}/assets/og-image.png`;
+  const ogImage = photos.cover ? `${SITE_URL}/${photos.cover}` : `${SITE_URL}/assets/miniature-odyssa.png`;
 
   const cover = photos.cover
     ? `<div class="dest-cover"><img src="${prefix}${photos.cover}" alt="${escapeHtml(content.titleShort)}"></div>`
@@ -190,7 +190,7 @@ export async function renderTip({ content, photo, tag, tagClass, slug, date, rel
   const prefix = '../../'; // depuis /blog/<slug>/
   const url = `${SITE_URL}/blog/${slug}/`;
   const alt = content.titleShort || content.title;
-  const ogImage = photo?.cover ? `${SITE_URL}/${photo.cover}` : `${SITE_URL}/assets/og-image.png`;
+  const ogImage = photo?.cover ? `${SITE_URL}/${photo.cover}` : `${SITE_URL}/assets/miniature-odyssa.png`;
   const cover = tipCoverFigure(photo, prefix, alt);
 
   const blogPrefix = '../'; // depuis /blog/<slug>/ vers /blog/
