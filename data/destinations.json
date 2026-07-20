@@ -1,5 +1,15 @@
 [
   {
+    "slug": "australie",
+    "title": "Australie en été : comment profiter des plages et des festivals",
+    "country": "Australie",
+    "tag": "Australie",
+    "excerpt": "Plages, festivals et découverte de la faune australienne",
+    "readingTime": "4 min de lecture",
+    "cover": "assets/blog/destinations/australie/cover.webp",
+    "date": "2026-07-20"
+  },
+  {
     "slug": "polynesie-francaise",
     "title": "Polynésie Française en été : que faire et que voir en juillet ?",
     "country": "France",

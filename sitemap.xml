@@ -21,6 +21,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://odyssa-app.com/blog/destinations/australie/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://odyssa-app.com/blog/destinations/polynesie-francaise/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -62,6 +67,16 @@
   </url>
   <url>
     <loc>https://odyssa-app.com/blog/destinations/maroc/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/comment-occuper-les-enfants-pendant-un-long-trajet-en-voiture-ou-en-av/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://odyssa-app.com/blog/comment-voyager-hors-saison-les-avantages-et-les-precautions/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
