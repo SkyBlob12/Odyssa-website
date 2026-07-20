@@ -1,35 +1,35 @@
 [
   {
-    "type": "tip",
-    "slug": "que-faire-en-cas-de-perte-ou-de-vol-de-papiers-a-l-etranger",
-    "title": "Que faire en cas de perte ou de vol de papiers à l'étranger ?",
-    "excerpt": "Perte de passeport, vol de carte bancaire : que faire ?",
-    "tag": "Pratique",
-    "country": "",
-    "url": "https://odyssa-app.com/blog/que-faire-en-cas-de-perte-ou-de-vol-de-papiers-a-l-etranger/",
-    "image": "https://odyssa-app.com/assets/blog/tips/que-faire-en-cas-de-perte-ou-de-vol-de-papiers-a-l-etranger/cover.webp",
-    "date": "2026-07-13"
+    "type": "destination",
+    "slug": "australie",
+    "title": "Australie en été : comment profiter des plages et des festivals",
+    "excerpt": "Plages, festivals et découverte de la faune australienne",
+    "tag": "Australie",
+    "country": "Australie",
+    "url": "https://odyssa-app.com/blog/destinations/australie/",
+    "image": "https://odyssa-app.com/assets/blog/destinations/australie/cover.webp",
+    "date": "2026-07-20"
   },
   {
     "type": "tip",
-    "slug": "comment-photographier-ses-voyages-comme-un-pro-conseils-et-astuces",
-    "title": "Comment photographier ses voyages comme un pro : conseils et astuces",
-    "excerpt": "Apprenez à photographier vos voyages comme un professionnel",
+    "slug": "comment-voyager-hors-saison-les-avantages-et-les-precautions",
+    "title": "Comment voyager hors saison : les avantages et les précautions",
+    "excerpt": "Voyager hors saison peut être une excellente option pour économiser de l'argent et éviter les foules",
     "tag": "Astuces",
     "country": "",
-    "url": "https://odyssa-app.com/blog/comment-photographier-ses-voyages-comme-un-pro-conseils-et-astuces/",
-    "image": "https://odyssa-app.com/assets/blog/tips/comment-photographier-ses-voyages-comme-un-pro-conseils-et-astuces/cover.webp",
-    "date": "2026-07-13"
+    "url": "https://odyssa-app.com/blog/comment-voyager-hors-saison-les-avantages-et-les-precautions/",
+    "image": "https://odyssa-app.com/assets/blog/tips/comment-voyager-hors-saison-les-avantages-et-les-precautions/cover.webp",
+    "date": "2026-07-20"
   },
   {
     "type": "tip",
-    "slug": "comment-trouver-les-bonnes-adresses-pour-manger-local-en-voyage",
-    "title": "Comment trouver les bonnes adresses pour manger local en voyage",
-    "excerpt": "Mangez comme un local et découvrez les saveurs authentiques de vos destinations",
-    "tag": "Gastronomie",
+    "slug": "comment-occuper-les-enfants-pendant-un-long-trajet-en-voiture-ou-en-av",
+    "title": "Comment occuper les enfants pendant un long trajet en voiture ou en avion ?",
+    "excerpt": "Les enfants s'ennuient en voyage ? Découvrez nos conseils pour les occuper",
+    "tag": "Famille",
     "country": "",
-    "url": "https://odyssa-app.com/blog/comment-trouver-les-bonnes-adresses-pour-manger-local-en-voyage/",
-    "image": "https://odyssa-app.com/assets/blog/tips/comment-trouver-les-bonnes-adresses-pour-manger-local-en-voyage/cover.webp",
-    "date": "2026-07-13"
+    "url": "https://odyssa-app.com/blog/comment-occuper-les-enfants-pendant-un-long-trajet-en-voiture-ou-en-av/",
+    "image": "https://odyssa-app.com/assets/blog/tips/comment-occuper-les-enfants-pendant-un-long-trajet-en-voiture-ou-en-av/cover.webp",
+    "date": "2026-07-20"
   }
 ]
