@@ -1,35 +1,35 @@
 [
   {
     "type": "destination",
-    "slug": "patagonie-chilienne",
-    "title": "Patagonie Chili en octobre : quel itinéraire et que prévoir ?",
-    "excerpt": "Octobre en Patagonie chilienne : climat idéal, moins de touristes, itinéraires sur mesure et conseils d'experts.",
-    "tag": "Chili",
-    "country": "Chili",
-    "url": "https://odyssa-app.com/blog/destinations/patagonie-chilienne/",
-    "image": "https://odyssa-app.com/assets/blog/destinations/patagonie-chilienne/cover.webp",
-    "date": "2026-09-07"
+    "slug": "seychelles",
+    "title": "Seychelles en octobre : quel temps, où séjourner et quoi faire ?",
+    "excerpt": "Octobre aux Seychelles : climat agréable, moins de touristes, activités variées. Tout ce qu’il faut savoir avant de partir.",
+    "tag": "Seychelles",
+    "country": "Seychelles",
+    "url": "https://odyssa-app.com/blog/destinations/seychelles/",
+    "image": "https://odyssa-app.com/assets/blog/destinations/seychelles/cover.webp",
+    "date": "2026-09-14"
   },
   {
     "type": "tip",
-    "slug": "comment-gerer-les-problemes-de-sante-mentale-pendant-un-voyage-7-strat",
-    "title": "Comment gérer les problèmes de santé mentale pendant un voyage : 7 stratégies concrètes",
-    "excerpt": "7 stratégies concrètes pour protéger votre santé mentale en voyage, de la planification à la gestion du stress sur place.",
-    "tag": "Bien-être",
+    "slug": "comment-voyager-avec-son-animal-de-compagnie-guide-complet-et-astuces-",
+    "title": "Comment voyager avec son animal de compagnie : guide complet et astuces pratiques",
+    "excerpt": "Voyager avec son animal ? Suivez ce guide pratique pour maîtriser documents, transport et hébergement sans stress.",
+    "tag": "Famille",
     "country": "",
-    "url": "https://odyssa-app.com/blog/comment-gerer-les-problemes-de-sante-mentale-pendant-un-voyage-7-strat/",
-    "image": "https://odyssa-app.com/assets/blog/tips/comment-gerer-les-problemes-de-sante-mentale-pendant-un-voyage-7-strat/cover.webp",
-    "date": "2026-09-07"
+    "url": "https://odyssa-app.com/blog/comment-voyager-avec-son-animal-de-compagnie-guide-complet-et-astuces-/",
+    "image": "https://odyssa-app.com/assets/blog/tips/comment-voyager-avec-son-animal-de-compagnie-guide-complet-et-astuces-/cover.webp",
+    "date": "2026-09-14"
   },
   {
     "type": "tip",
-    "slug": "les-6-destinations-europeennes-pour-un-voyage-culinaire",
-    "title": "Les 6 destinations européennes pour un voyage culinaire",
-    "excerpt": "Partez à la découverte des saveurs européennes : marchés, restaurants et produits locaux à ne pas manquer.",
-    "tag": "Gastronomie",
+    "slug": "les-10-accessoires-de-voyage-indispensables-pour-un-sejour-ultra-confo",
+    "title": "Les 10 accessoires de voyage indispensables pour un séjour ultra confortable",
+    "excerpt": "Une sélection d’accessoires ingénieux pour voyager plus léger, plus reposé et sans mauvaise surprise.",
+    "tag": "Astuces",
     "country": "",
-    "url": "https://odyssa-app.com/blog/les-6-destinations-europeennes-pour-un-voyage-culinaire/",
-    "image": "https://odyssa-app.com/assets/blog/tips/les-6-destinations-europeennes-pour-un-voyage-culinaire/cover.webp",
-    "date": "2026-09-07"
+    "url": "https://odyssa-app.com/blog/les-10-accessoires-de-voyage-indispensables-pour-un-sejour-ultra-confo/",
+    "image": "https://odyssa-app.com/assets/blog/tips/les-10-accessoires-de-voyage-indispensables-pour-un-sejour-ultra-confo/cover.webp",
+    "date": "2026-09-14"
   }
 ]
