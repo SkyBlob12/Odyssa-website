@@ -1,35 +1,35 @@
 [
   {
-    "type": "destination",
-    "slug": "seychelles",
-    "title": "Seychelles en octobre : quel temps, où séjourner et quoi faire ?",
-    "excerpt": "Octobre aux Seychelles : climat agréable, moins de touristes, activités variées. Tout ce qu’il faut savoir avant de partir.",
-    "tag": "Seychelles",
-    "country": "Seychelles",
-    "url": "https://odyssa-app.com/blog/destinations/seychelles/",
-    "image": "https://odyssa-app.com/assets/blog/destinations/seychelles/cover.webp",
-    "date": "2026-09-14"
+    "type": "tip",
+    "slug": "comment-integrer-du-volontariat-a-son-voyage-guide-complet-en-7-etapes",
+    "title": "Comment intégrer du volontariat à son voyage : guide complet en 7 étapes",
+    "excerpt": "Apprenez à choisir, préparer et vivre une expérience de volontariat qui profite à la fois à vous et aux habitants.",
+    "tag": "Inspiration",
+    "country": "",
+    "url": "https://odyssa-app.com/blog/comment-integrer-du-volontariat-a-son-voyage-guide-complet-en-7-etapes/",
+    "image": "https://odyssa-app.com/assets/blog/tips/comment-integrer-du-volontariat-a-son-voyage-guide-complet-en-7-etapes/cover.webp",
+    "date": "2026-09-28"
   },
   {
     "type": "tip",
-    "slug": "comment-voyager-avec-son-animal-de-compagnie-guide-complet-et-astuces-",
-    "title": "Comment voyager avec son animal de compagnie : guide complet et astuces pratiques",
-    "excerpt": "Voyager avec son animal ? Suivez ce guide pratique pour maîtriser documents, transport et hébergement sans stress.",
-    "tag": "Famille",
+    "slug": "comment-optimiser-une-escale-longue-de-48-h-pour-decouvrir-une-ville",
+    "title": "Comment optimiser une escale longue de 48 h pour découvrir une ville",
+    "excerpt": "Transformez vos escales longues en mini‑séjours de 48 h grâce à des astuces concrètes de transport, visites et repas.",
+    "tag": "Organisation",
     "country": "",
-    "url": "https://odyssa-app.com/blog/comment-voyager-avec-son-animal-de-compagnie-guide-complet-et-astuces-/",
-    "image": "https://odyssa-app.com/assets/blog/tips/comment-voyager-avec-son-animal-de-compagnie-guide-complet-et-astuces-/cover.webp",
-    "date": "2026-09-14"
+    "url": "https://odyssa-app.com/blog/comment-optimiser-une-escale-longue-de-48-h-pour-decouvrir-une-ville/",
+    "image": "https://odyssa-app.com/assets/blog/tips/comment-optimiser-une-escale-longue-de-48-h-pour-decouvrir-une-ville/cover.webp",
+    "date": "2026-09-28"
   },
   {
     "type": "tip",
-    "slug": "les-10-accessoires-de-voyage-indispensables-pour-un-sejour-ultra-confo",
-    "title": "Les 10 accessoires de voyage indispensables pour un séjour ultra confortable",
-    "excerpt": "Une sélection d’accessoires ingénieux pour voyager plus léger, plus reposé et sans mauvaise surprise.",
-    "tag": "Astuces",
+    "slug": "pourquoi-choisir-le-train-de-nuit-en-europe-5-avantages-pratiques-pour",
+    "title": "Pourquoi choisir le train de nuit en Europe : 5 avantages pratiques pour voyager malin",
+    "excerpt": "Le train de nuit offre économies, confort et moindre empreinte carbone ; voici comment en profiter au maximum.",
+    "tag": "Budget",
     "country": "",
-    "url": "https://odyssa-app.com/blog/les-10-accessoires-de-voyage-indispensables-pour-un-sejour-ultra-confo/",
-    "image": "https://odyssa-app.com/assets/blog/tips/les-10-accessoires-de-voyage-indispensables-pour-un-sejour-ultra-confo/cover.webp",
-    "date": "2026-09-14"
+    "url": "https://odyssa-app.com/blog/pourquoi-choisir-le-train-de-nuit-en-europe-5-avantages-pratiques-pour/",
+    "image": "https://odyssa-app.com/assets/blog/tips/pourquoi-choisir-le-train-de-nuit-en-europe-5-avantages-pratiques-pour/cover.webp",
+    "date": "2026-09-28"
   }
 ]
