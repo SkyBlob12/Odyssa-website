@@ -78,6 +78,7 @@
   }
   a.store.secondary { background: transparent; color: var(--primary); border: 1px solid var(--border); }
   .fallback { display: none; }
+  .hint { display: none; font-size: 13px; margin: 20px 0 0; }
 </style>
 </head>
 <body>
@@ -89,6 +90,7 @@
     <a class="store" id="link-ios" href="#">App Store</a>
     <a class="store secondary" id="link-android" href="#">Google Play</a>
   </div>
+  <p class="hint" id="hint"></p>
 </div>
 
 <noscript>
@@ -111,8 +113,24 @@
   var BEACON_URL = 'https://vyjqhkfdhweumbuzkvda.supabase.co/functions/v1/go';
 
   var TEXT = {
-    fr: { title: 'Odyssa', subtitle: 'Redirection vers le store...', manual: 'Si rien ne se passe :' },
-    en: { title: 'Odyssa', subtitle: 'Taking you to the store...', manual: 'If nothing happens:' }
+    fr: {
+      title: 'Odyssa',
+      subtitle: 'Redirection vers le store...',
+      manual: 'Si rien ne se passe :',
+      tap: 'Touchez le bouton pour installer Odyssa.',
+      openIos: "Ouvrir l'App Store",
+      openAndroid: 'Ouvrir Google Play',
+      inAppHint: 'Rien ne s’ouvre ? Touchez ··· en haut de l’écran, puis « Ouvrir dans le navigateur ».'
+    },
+    en: {
+      title: 'Odyssa',
+      subtitle: 'Taking you to the store...',
+      manual: 'If nothing happens:',
+      tap: 'Tap the button to install Odyssa.',
+      openIos: 'Open the App Store',
+      openAndroid: 'Open Google Play',
+      inAppHint: 'Nothing opens? Tap ··· at the top of the screen, then “Open in browser”.'
+    }
   };
 
   var params = new URLSearchParams(window.location.search);
@@ -131,6 +149,11 @@
   var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
               (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
   var isAndroid = /Android/i.test(ua);
+  // Navigateurs integres des reseaux sociaux. TikTok (musical_ly, trill,
+  // BytedanceWebview) bloque toute sortie vers une autre app qui n'est pas
+  // declenchee par un toucher : la redirection automatique y reste lettre
+  // morte, seul un bouton touche par l'utilisateur ouvre le store.
+  var isInApp = /musical_ly|trill_|BytedanceWebview|ByteLocale|TikTok|Instagram|FBAN|FBAV|FB_IAB|Snapchat/i.test(ua);
 
   function appStoreUrl() {
     var url = 'https://apps.apple.com/app/odyssa/id' + IOS_APP_ID + '?mt=8';
@@ -171,18 +194,45 @@
     } catch (e) { /* navigateur sans fetch : tant pis pour la statistique */ }
   }
 
+  function showButtons(subtitle) {
+    document.getElementById('spinner').style.display = 'none';
+    document.getElementById('subtitle').textContent = subtitle;
+    document.getElementById('fallback').style.display = 'block';
+  }
+
   if (isIOS || isAndroid) {
+    // Un seul bouton, celui du telephone, en style principal.
+    var mine = document.getElementById(isIOS ? 'link-ios' : 'link-android');
+    var other = document.getElementById(isIOS ? 'link-android' : 'link-ios');
+    mine.className = 'store';
+    mine.textContent = isIOS ? text.openIos : text.openAndroid;
+    other.style.display = 'none';
+
+    if (isInApp) {
+      // Pas de redirection automatique : elle serait bloquee, ou chargerait la
+      // fiche web du store dans la vue integree au lieu d'ouvrir l'app store.
+      showButtons(text.tap);
+      var hint = document.getElementById('hint');
+      hint.textContent = text.inAppHint;
+      hint.style.display = 'block';
+      return;
+    }
+
     // `replace` et non `href` : le bouton retour du navigateur doit ramener a
-    // TikTok, pas rejouer la redirection en boucle.
+    // la page precedente, pas rejouer la redirection en boucle.
     window.location.replace(isIOS ? appStoreUrl() : playStoreUrl());
+
+    // Filet de securite : si la page est toujours a l'ecran, la redirection a
+    // ete bloquee. On montre le bouton plutot qu'un spinner sans fin.
+    setTimeout(function () {
+      if (document.visibilityState === 'visible') showButtons(text.manual);
+    }, 1500);
     return;
   }
 
   // Ni iPhone ni Android, donc un ordinateur : personne a rediriger vers un
   // store mobile, on montre les deux fiches.
-  document.getElementById('spinner').style.display = 'none';
-  document.getElementById('subtitle').textContent = text.manual;
-  document.getElementById('fallback').style.display = 'block';
+  showButtons(text.manual);
 })();
 </script>
 </body>
