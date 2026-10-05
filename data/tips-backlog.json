@@ -257,19 +257,19 @@
       "title": "Le guide complet pour préparer un trek en montagne sans équipement lourd",
       "tag": "Astuces",
       "angle": "Conseils détaillés sur la sélection de matériel léger, les vêtements techniques et les techniques de charge.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment créer un carnet de voyage numérique collaboratif pour un groupe d'amis",
       "tag": "Pratique",
       "angle": "Étapes pour structurer, partager et enrichir un journal de voyage en ligne via Odyssa.",
-      "used": false
+      "used": true
     },
     {
       "title": "5 idées d'activités locales à faire avec des enfants de 5 à 10 ans",
       "tag": "Famille",
       "angle": "Propositions d'ateliers, musées interactifs et jeux de plein air adaptés aux familles.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment gérer son budget alimentation à l'étranger : astuces et calculs précis",
@@ -299,6 +299,66 @@
       "title": "Comment réduire les déchets plastiques pendant un road‑trip en van",
       "tag": "Éco‑voyage",
       "angle": "Solutions concrètes pour le ravitaillement, le nettoyage et le recyclage en déplacement.",
+      "used": false
+    },
+    {
+      "title": "Comment préparer un trek en haute montagne : checklist et conseils",
+      "tag": "Astuces",
+      "angle": "Guide détaillé des équipements, entraînement et sécurité pour un trek en altitude.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi choisir le ferry Méditerranée pour visiter les îles grecques",
+      "tag": "Inspiration",
+      "angle": "Analyse des avantages du ferry (coût, paysages, flexibilité) avec exemples d'itinéraires.",
+      "used": false
+    },
+    {
+      "title": "Comment optimiser un budget repas à 15 €/jour en Asie du Sud‑Est",
+      "tag": "Budget",
+      "angle": "Stratégies concrètes pour manger local, marchés et street‑food sans dépasser 15 €.",
+      "used": false
+    },
+    {
+      "title": "Le guide complet pour voyager en van aménagé à travers le Canada",
+      "tag": "Pratique",
+      "angle": "Planification d'itinéraires, aires de stationnement, entretien du van et astuces locales.",
+      "used": false
+    },
+    {
+      "title": "Comment gérer les visas multiples pour un tour de l’Europe en 3 mois",
+      "tag": "Organisation",
+      "angle": "Étapes administratives, délais, frais et outils pour suivre chaque demande de visa.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi inclure des festivals locaux dans votre circuit d’été en Europe",
+      "tag": "Gastronomie",
+      "angle": "Impact des festivals sur la culture, les rencontres et les découvertes culinaires.",
+      "used": false
+    },
+    {
+      "title": "Comment préparer son sac à dos pour un voyage de 30 jours en Amérique du Sud",
+      "tag": "Astuces",
+      "angle": "Sélection d'équipements légers, organisation du sac et gestion de la météo variée.",
+      "used": false
+    },
+    {
+      "title": "Le guide pratique du train de jour entre Lisbonne et Madrid : tarifs et réservations",
+      "tag": "Organisation",
+      "angle": "Analyse des horaires, prix, classes et conseils pour profiter du trajet.",
+      "used": false
+    },
+    {
+      "title": "Comment profiter d’une croisière fluviale sur le Danube en famille",
+      "tag": "Famille",
+      "angle": "Activités à bord, escales adaptées aux enfants et astuces pour un séjour sans stress.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi intégrer des hébergements chez l'habitant dans votre road‑trip au Maroc",
+      "tag": "Éco‑voyage",
+      "angle": "Avantages culturels, économiques et écologiques des séjours chez l'habitant.",
       "used": false
     }
   ]
