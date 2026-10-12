@@ -257,19 +257,19 @@
       "title": "Le guide complet pour préparer un trek en montagne sans équipement lourd",
       "tag": "Astuces",
       "angle": "Conseils détaillés sur la sélection de matériel léger, les vêtements techniques et les techniques de charge.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment créer un carnet de voyage numérique collaboratif pour un groupe d'amis",
       "tag": "Pratique",
       "angle": "Étapes pour structurer, partager et enrichir un journal de voyage en ligne via Odyssa.",
-      "used": false
+      "used": true
     },
     {
       "title": "5 idées d'activités locales à faire avec des enfants de 5 à 10 ans",
       "tag": "Famille",
       "angle": "Propositions d'ateliers, musées interactifs et jeux de plein air adaptés aux familles.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment gérer son budget alimentation à l'étranger : astuces et calculs précis",
@@ -299,6 +299,66 @@
       "title": "Comment réduire les déchets plastiques pendant un road‑trip en van",
       "tag": "Éco‑voyage",
       "angle": "Solutions concrètes pour le ravitaillement, le nettoyage et le recyclage en déplacement.",
+      "used": false
+    },
+    {
+      "title": "Comment choisir les meilleures assurances santé pour un road trip Europe",
+      "tag": "Budget",
+      "angle": "Analyse des garanties essentielles, exclusions fréquentes et astuces pour économiser tout en restant couvert lors d'un road trip.",
+      "used": false
+    },
+    {
+      "title": "Le guide complet pour voyager en van aménagé en France en été",
+      "tag": "Pratique",
+      "angle": "Conseils détaillés sur le choix du van, les aires de stationnement, la réglementation et les itinéraires côtiers à ne pas manquer.",
+      "used": false
+    },
+    {
+      "title": "Comment préparer un sac à dos ultra-léger pour un trek de 10 jours au Népal",
+      "tag": "Astuces",
+      "angle": "Sélection d'équipements, poids cible, astuces de compression et liste d'objets indispensables pour un trek en haute montagne.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi visiter les villages médiévaux du Sud de l’Espagne en dehors des festivals",
+      "tag": "Inspiration",
+      "angle": "Mise en avant de sites moins fréquentés, horaires d'ouverture, hébergements locaux et expériences culturelles authentiques.",
+      "used": false
+    },
+    {
+      "title": "Comment optimiser le budget repas lors d'un séjour de deux semaines en Asie du Sud-Est",
+      "tag": "Budget",
+      "angle": "Stratégies pour manger local, marchés, street food sécurisée, calcul des coûts journaliers et planification des courses.",
+      "used": false
+    },
+    {
+      "title": "Le guide complet pour voyager avec un bébé de 6 mois en avion long-courrier",
+      "tag": "Famille",
+      "angle": "Préparatifs, équipements, gestion du sommeil et de l'alimentation, et astuces pour un embarquement serein.",
+      "used": false
+    },
+    {
+      "title": "Comment planifier un séjour de volontariat en conservation marine aux Maldives",
+      "tag": "Éco-voyage",
+      "angle": "Choix des organisations, exigences de visa, budget, logistique et impact environnemental d'un projet de protection des coraux.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi privilégier les hébergements écologiques dans les parcs nationaux nordiques",
+      "tag": "Bien-être",
+      "angle": "Analyse des certifications, bénéfices pour le confort, réduction de l'empreinte carbone et exemples d'établissements certifiés.",
+      "used": false
+    },
+    {
+      "title": "Comment créer un itinéraire photographique de 7 jours dans les paysages lunaires d'Islande",
+      "tag": "Inspiration",
+      "angle": "Sélection des sites emblématiques, horaires d’or, conditions météorologiques, et conseils techniques pour capturer la lumière unique.",
+      "used": false
+    },
+    {
+      "title": "Le guide complet pour organiser un voyage en groupe intergénérationnel en Italie",
+      "tag": "Organisation",
+      "angle": "Coordination des intérêts divers, hébergement adapté, transport partagé, activités mixtes et gestion du budget collectif.",
       "used": false
     }
   ]
