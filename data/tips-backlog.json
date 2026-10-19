@@ -257,19 +257,19 @@
       "title": "Le guide complet pour préparer un trek en montagne sans équipement lourd",
       "tag": "Astuces",
       "angle": "Conseils détaillés sur la sélection de matériel léger, les vêtements techniques et les techniques de charge.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment créer un carnet de voyage numérique collaboratif pour un groupe d'amis",
       "tag": "Pratique",
       "angle": "Étapes pour structurer, partager et enrichir un journal de voyage en ligne via Odyssa.",
-      "used": false
+      "used": true
     },
     {
       "title": "5 idées d'activités locales à faire avec des enfants de 5 à 10 ans",
       "tag": "Famille",
       "angle": "Propositions d'ateliers, musées interactifs et jeux de plein air adaptés aux familles.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment gérer son budget alimentation à l'étranger : astuces et calculs précis",
@@ -299,6 +299,66 @@
       "title": "Comment réduire les déchets plastiques pendant un road‑trip en van",
       "tag": "Éco‑voyage",
       "angle": "Solutions concrètes pour le ravitaillement, le nettoyage et le recyclage en déplacement.",
+      "used": false
+    },
+    {
+      "title": "Comment choisir le meilleur train de jour en Europe pour un budget limité",
+      "tag": "Budget",
+      "angle": "Analyse des tarifs, réservations anticipées et astuces pour économiser sur les trajets en train de jour.",
+      "used": false
+    },
+    {
+      "title": "Les 7 étapes pour préparer un trek en haute montagne en toute sécurité",
+      "tag": "Astuces",
+      "angle": "Guide pratique couvrant l'équipement, la condition physique, la météo et la gestion des risques.",
+      "used": false
+    },
+    {
+      "title": "Comment transformer un vol long-courrier en moment de productivité",
+      "tag": "Pratique",
+      "angle": "Stratégies pour travailler, lire et se détendre efficacement pendant les vols de plus de 8 h.",
+      "used": false
+    },
+    {
+      "title": "Guide complet pour voyager en van aménagé à travers les Balkans",
+      "tag": "Inspiration",
+      "angle": "Itinéraire détaillé, points d'arrêt, aires de stationnement et conseils de vie en van dans la région.",
+      "used": false
+    },
+    {
+      "title": "Comment gérer le décalage horaire en 3 jours grâce à la lumière naturelle",
+      "tag": "Bien-être",
+      "angle": "Méthodes basées sur l'exposition à la lumière, la nutrition et le sommeil pour réduire le jet‑lag rapidement.",
+      "used": false
+    },
+    {
+      "title": "Les 5 meilleures villes européennes pour pratiquer le surf en hiver",
+      "tag": "Gastronomie",
+      "angle": "Sélection de spots, conditions climatiques, écoles de surf et hébergements adaptés pour les surfistes en saison froide.",
+      "used": false
+    },
+    {
+      "title": "Comment organiser un voyage intergénérationnel sans conflit",
+      "tag": "Famille",
+      "angle": "Techniques de planification, répartition des activités et gestion des attentes pour que chaque génération profite du séjour.",
+      "used": false
+    },
+    {
+      "title": "Le guide détaillé pour obtenir un visa Schengen en moins de 2 semaines",
+      "tag": "Pratique",
+      "angle": "Étapes administratives, documents requis, astuces pour accélérer le processus et éviter les pièges courants.",
+      "used": false
+    },
+    {
+      "title": "Comment planifier une escapade éco‑responsable dans les parcs nationaux français",
+      "tag": "Éco-voyage",
+      "angle": "Choix des transports, hébergements écologiques, gestes zéro déchet et activités à faible impact environnemental.",
+      "used": false
+    },
+    {
+      "title": "Les 9 secrets pour profiter pleinement d'une croisière fluviale en Europe",
+      "tag": "Inspiration",
+      "angle": "Conseils sur la réservation, les excursions à terre, la gestion du budget à bord et les meilleures périodes de navigation.",
       "used": false
     }
   ]
