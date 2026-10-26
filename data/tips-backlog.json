@@ -257,19 +257,19 @@
       "title": "Le guide complet pour préparer un trek en montagne sans équipement lourd",
       "tag": "Astuces",
       "angle": "Conseils détaillés sur la sélection de matériel léger, les vêtements techniques et les techniques de charge.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment créer un carnet de voyage numérique collaboratif pour un groupe d'amis",
       "tag": "Pratique",
       "angle": "Étapes pour structurer, partager et enrichir un journal de voyage en ligne via Odyssa.",
-      "used": false
+      "used": true
     },
     {
       "title": "5 idées d'activités locales à faire avec des enfants de 5 à 10 ans",
       "tag": "Famille",
       "angle": "Propositions d'ateliers, musées interactifs et jeux de plein air adaptés aux familles.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment gérer son budget alimentation à l'étranger : astuces et calculs précis",
@@ -299,6 +299,66 @@
       "title": "Comment réduire les déchets plastiques pendant un road‑trip en van",
       "tag": "Éco‑voyage",
       "angle": "Solutions concrètes pour le ravitaillement, le nettoyage et le recyclage en déplacement.",
+      "used": false
+    },
+    {
+      "title": "Comment choisir son assurance voyage selon la destination",
+      "tag": "Budget",
+      "angle": "Analyse des garanties indispensables selon le type de séjour et les risques locaux.",
+      "used": false
+    },
+    {
+      "title": "Le guide complet pour voyager éco‑responsable en train en Europe",
+      "tag": "Éco-voyage",
+      "angle": "Conseils concrets pour réduire son empreinte carbone en privilégiant le rail.",
+      "used": false
+    },
+    {
+      "title": "Comment préparer un sac à dos ultra‑léger pour un trek de 7 jours",
+      "tag": "Astuces",
+      "angle": "Sélection d'équipements essentiels, poids ciblé et astuces d'emballage.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi intégrer des festivals locaux dans son itinéraire : 5 bénéfices",
+      "tag": "Inspiration",
+      "angle": "Illustration des découvertes culturelles, rencontres et économies liées aux événements.",
+      "used": false
+    },
+    {
+      "title": "Comment gérer les imprévus de santé en voyage sans frais excessifs",
+      "tag": "Bien-être",
+      "angle": "Stratégies pour anticiper les soins, choisir les pharmacies et utiliser les réseaux d'urgence.",
+      "used": false
+    },
+    {
+      "title": "Le guide pratique pour voyager avec un bébé de 0 à 12 mois",
+      "tag": "Famille",
+      "angle": "Organisation du transport, du matériel et des pauses pour un voyage serein.",
+      "used": false
+    },
+    {
+      "title": "Comment optimiser son budget repas en Europe sans renoncer au goût",
+      "tag": "Gastronomie",
+      "angle": "Techniques pour dénicher marchés, restaurants locaux et cuisiner en auberge.",
+      "used": false
+    },
+    {
+      "title": "Les meilleures astuces pour rester connecté en roaming gratuit",
+      "tag": "Pratique",
+      "angle": "Utilisation de points Wi‑Fi publics, VPN et cartes SIM locales sans frais supplémentaires.",
+      "used": false
+    },
+    {
+      "title": "Comment planifier un road‑trip multi‑états aux États‑Unis en 3 semaines",
+      "tag": "Organisation",
+      "angle": "Itinéraire détaillé, réservations d'hébergement et gestion du budget carburant.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi privilégier les hébergements chez l'habitant pour une immersion locale",
+      "tag": "Inspiration",
+      "angle": "Avantages culturels, économiques et sécuritaires de la location chez l'habitant.",
       "used": false
     }
   ]
