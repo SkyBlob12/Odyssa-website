@@ -257,19 +257,19 @@
       "title": "Le guide complet pour préparer un trek en montagne sans équipement lourd",
       "tag": "Astuces",
       "angle": "Conseils détaillés sur la sélection de matériel léger, les vêtements techniques et les techniques de charge.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment créer un carnet de voyage numérique collaboratif pour un groupe d'amis",
       "tag": "Pratique",
       "angle": "Étapes pour structurer, partager et enrichir un journal de voyage en ligne via Odyssa.",
-      "used": false
+      "used": true
     },
     {
       "title": "5 idées d'activités locales à faire avec des enfants de 5 à 10 ans",
       "tag": "Famille",
       "angle": "Propositions d'ateliers, musées interactifs et jeux de plein air adaptés aux familles.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment gérer son budget alimentation à l'étranger : astuces et calculs précis",
@@ -299,6 +299,66 @@
       "title": "Comment réduire les déchets plastiques pendant un road‑trip en van",
       "tag": "Éco‑voyage",
       "angle": "Solutions concrètes pour le ravitaillement, le nettoyage et le recyclage en déplacement.",
+      "used": false
+    },
+    {
+      "title": "Comment préparer son sac à dos pour un trek de 10 jours en montagne",
+      "tag": "Astuces",
+      "angle": "Sélectionner le matériel, optimiser le poids et organiser le contenu pour un trek de 10 jours en haute altitude.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi choisir un hébergement chez l'habitant en Asie du Sud‑Est",
+      "tag": "Inspiration",
+      "angle": "Analyser les bénéfices culturels, économiques et sécuritaires d’un séjour chez l’habitant dans la région.",
+      "used": false
+    },
+    {
+      "title": "Comment gérer les frais de change en voyage : 5 techniques fiables",
+      "tag": "Budget",
+      "angle": "Comparer les cartes, les cash‑back, les applications et les stratégies pour limiter les pertes de change.",
+      "used": false
+    },
+    {
+      "title": "Le guide complet pour voyager en train de banlieue en Europe sans stress",
+      "tag": "Pratique",
+      "angle": "Planifier les correspondances, acheter les billets au bon moment et profiter des services à bord.",
+      "used": false
+    },
+    {
+      "title": "Comment organiser un séjour de bien‑être en pleine nature pour un groupe de 5 personnes",
+      "tag": "Bien‑être",
+      "angle": "Choisir la destination, les activités de relaxation et les hébergements adaptés à un petit groupe.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi inclure une visite de marchés locaux dans votre itinéraire gastronomique",
+      "tag": "Gastronomie",
+      "angle": "Mettre en avant les produits frais, les recettes authentiques et les rencontres avec les producteurs.",
+      "used": false
+    },
+    {
+      "title": "Comment planifier un road‑trip en van de la Côte d'Azur à la Toscane en 14 jours",
+      "tag": "Organisation",
+      "angle": "Tracer l’itinéraire, choisir les aires de stationnement, gérer le carburant et les points d’intérêt clés.",
+      "used": false
+    },
+    {
+      "title": "Le guide pratique pour voyager avec un bébé de 0 à 12 mois en avion",
+      "tag": "Famille",
+      "angle": "Préparer les documents, le siège, les repas et les moments de repos pour un vol serein.",
+      "used": false
+    },
+    {
+      "title": "Comment réduire son empreinte carbone lors d’un séjour de deux semaines en Asie du Sud‑Est",
+      "tag": "Éco‑voyage",
+      "angle": "Adopter le transport doux, choisir des hébergements éco‑certifiés et limiter les déchets.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi intégrer des pauses méditatives quotidiennes pendant un long voyage",
+      "tag": "Bien‑être",
+      "angle": "Expliquer les bienfaits, les techniques simples et les moments propices pour méditer en déplacement.",
       "used": false
     }
   ]
