@@ -257,19 +257,19 @@
       "title": "Le guide complet pour préparer un trek en montagne sans équipement lourd",
       "tag": "Astuces",
       "angle": "Conseils détaillés sur la sélection de matériel léger, les vêtements techniques et les techniques de charge.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment créer un carnet de voyage numérique collaboratif pour un groupe d'amis",
       "tag": "Pratique",
       "angle": "Étapes pour structurer, partager et enrichir un journal de voyage en ligne via Odyssa.",
-      "used": false
+      "used": true
     },
     {
       "title": "5 idées d'activités locales à faire avec des enfants de 5 à 10 ans",
       "tag": "Famille",
       "angle": "Propositions d'ateliers, musées interactifs et jeux de plein air adaptés aux familles.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment gérer son budget alimentation à l'étranger : astuces et calculs précis",
@@ -299,6 +299,66 @@
       "title": "Comment réduire les déchets plastiques pendant un road‑trip en van",
       "tag": "Éco‑voyage",
       "angle": "Solutions concrètes pour le ravitaillement, le nettoyage et le recyclage en déplacement.",
+      "used": false
+    },
+    {
+      "title": "Comment préparer un voyage en solo dans un pays francophone : guide pas à pas",
+      "tag": "Pratique",
+      "angle": "Étapes concrètes pour organiser un séjour en solo dans un pays francophone, de la recherche d’hébergement aux astuces de sécurité.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi choisir les hébergements chez l'habitant pour s’immerger localement",
+      "tag": "Inspiration",
+      "angle": "Analyse des bénéfices culturels et économiques d’un séjour chez l’habitant, avec des exemples précis en Europe et en Asie.",
+      "used": false
+    },
+    {
+      "title": "10 idées d’activités gratuites à faire en ville pendant un court séjour",
+      "tag": "Astuces",
+      "angle": "Sélection d’activités sans frais dans les capitales européennes, incluant musées, parcs et événements locaux, avec adresses et horaires.",
+      "used": false
+    },
+    {
+      "title": "Comment réduire son empreinte carbone en voyage en avion : 7 gestes concrets",
+      "tag": "Éco-voyage",
+      "angle": "Conseils mesurables pour diminuer les émissions liées aux vols, du choix des compagnies aux compensations et habitudes à bord.",
+      "used": false
+    },
+    {
+      "title": "Le guide complet pour voyager avec un budget limité à 30 €/jour en Asie du Sud-Est",
+      "tag": "Budget",
+      "angle": "Planification détaillée d’un itinéraire quotidien, hébergement, repas et transports pour respecter la contrainte de 30 €/jour.",
+      "used": false
+    },
+    {
+      "title": "Comment organiser un voyage intergénérationnel : seniors et enfants ensemble",
+      "tag": "Famille",
+      "angle": "Stratégies pour concilier les besoins des grands-parents et des tout‑petits, du choix des hébergements aux activités adaptées.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi intégrer des ateliers artisanaux locaux dans votre itinéraire de voyage",
+      "tag": "Inspiration",
+      "angle": "Valeur culturelle et souvenirs uniques des ateliers, avec exemples de poterie au Maroc et de tissage au Pérou.",
+      "used": false
+    },
+    {
+      "title": "Comment profiter des marchés nocturnes en Asie : guide pratique et sécurité",
+      "tag": "Gastronomie",
+      "angle": "Itinéraire et précautions pour explorer les marchés nocturnes, avec suggestions de plats emblématiques à déguster.",
+      "used": false
+    },
+    {
+      "title": "10 astuces pour rester productif en voyage d’affaires sans sacrifier le plaisir",
+      "tag": "Organisation",
+      "angle": "Techniques pour gérer le temps, les connexions internet et les pauses détente lors de déplacements professionnels.",
+      "used": false
+    },
+    {
+      "title": "Comment planifier un voyage zéro déchet : étapes, outils et bons plans",
+      "tag": "Éco-voyage",
+      "angle": "Méthodologie complète pour réduire les déchets, du choix du contenant réutilisable aux points de recyclage locaux.",
       "used": false
     }
   ]
