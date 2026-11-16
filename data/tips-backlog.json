@@ -257,19 +257,19 @@
       "title": "Le guide complet pour préparer un trek en montagne sans équipement lourd",
       "tag": "Astuces",
       "angle": "Conseils détaillés sur la sélection de matériel léger, les vêtements techniques et les techniques de charge.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment créer un carnet de voyage numérique collaboratif pour un groupe d'amis",
       "tag": "Pratique",
       "angle": "Étapes pour structurer, partager et enrichir un journal de voyage en ligne via Odyssa.",
-      "used": false
+      "used": true
     },
     {
       "title": "5 idées d'activités locales à faire avec des enfants de 5 à 10 ans",
       "tag": "Famille",
       "angle": "Propositions d'ateliers, musées interactifs et jeux de plein air adaptés aux familles.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment gérer son budget alimentation à l'étranger : astuces et calculs précis",
@@ -299,6 +299,66 @@
       "title": "Comment réduire les déchets plastiques pendant un road‑trip en van",
       "tag": "Éco‑voyage",
       "angle": "Solutions concrètes pour le ravitaillement, le nettoyage et le recyclage en déplacement.",
+      "used": false
+    },
+    {
+      "title": "Comment profiter des marchés nocturnes en Asie : guide pratique",
+      "tag": "Inspiration",
+      "angle": "Décrypte les meilleures villes, horaires et astuces pour vivre l'effervescence des marchés nocturnes tout en maîtrisant le budget.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi choisir les hébergements chez l'habitant pour s'immerger localement",
+      "tag": "Éco-voyage",
+      "angle": "Analyse les bénéfices culturels, économiques et environnementaux des séjours chez l'habitant, avec des exemples concrets en Europe et en Amérique latine.",
+      "used": false
+    },
+    {
+      "title": "Comment planifier un trek de 3 jours dans les Pyrénées sans se perdre",
+      "tag": "Astuces",
+      "angle": "Propose un itinéraire détaillé, le matériel indispensable, les points d'eau et les applications hors ligne compatibles avec Odyssa.",
+      "used": false
+    },
+    {
+      "title": "Les 7 étapes pour créer un budget voyage zéro stress avec Odyssa",
+      "tag": "Budget",
+      "angle": "Explique comment structurer les dépenses, suivre les conversions de devises et anticiper les imprévus grâce aux fonctionnalités d'Odyssa.",
+      "used": false
+    },
+    {
+      "title": "Comment voyager en solo au Japon en toute sécurité et authenticité",
+      "tag": "Pratique",
+      "angle": "Fournit des conseils de sécurité, des lieux hors des sentiers battus et des astuces pour rencontrer des locaux grâce à Odyssa.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi intégrer des micro‑séjours de 48 h dans un road‑trip européen",
+      "tag": "Inspiration",
+      "angle": "Montre comment ces escales courtes enrichissent le voyage, avec des exemples d'itinéraires de Bordeaux à Lisbonne.",
+      "used": false
+    },
+    {
+      "title": "Comment préparer une valise légère pour un tour du monde de 6 mois",
+      "tag": "Astuces",
+      "angle": "Liste les essentiels, le ratio vêtements‑chaussures‑accessoires et les techniques de pliage testées par des voyageurs chevronnés.",
+      "used": false
+    },
+    {
+      "title": "Les meilleures astuces pour garder son téléphone chargé en pleine aventure",
+      "tag": "Pratique",
+      "angle": "Présente des solutions solaires, des power‑banks compactes et des réglages d’économie d’énergie compatibles avec Odyssa.",
+      "used": false
+    },
+    {
+      "title": "Comment organiser un voyage intergénérationnel sans friction",
+      "tag": "Famille",
+      "angle": "Décrit la coordination des activités, les besoins de chaque tranche d’âge et l’usage d'Odyssa pour synchroniser les réservations.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi privilégier les transports publics locaux pour réduire son empreinte carbone",
+      "tag": "Éco-voyage",
+      "angle": "Quantifie les économies d’émissions, donne des exemples de villes où les réseaux sont optimaux et montre comment Odyssa intègre ces données.",
       "used": false
     }
   ]
