@@ -257,19 +257,19 @@
       "title": "Le guide complet pour préparer un trek en montagne sans équipement lourd",
       "tag": "Astuces",
       "angle": "Conseils détaillés sur la sélection de matériel léger, les vêtements techniques et les techniques de charge.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment créer un carnet de voyage numérique collaboratif pour un groupe d'amis",
       "tag": "Pratique",
       "angle": "Étapes pour structurer, partager et enrichir un journal de voyage en ligne via Odyssa.",
-      "used": false
+      "used": true
     },
     {
       "title": "5 idées d'activités locales à faire avec des enfants de 5 à 10 ans",
       "tag": "Famille",
       "angle": "Propositions d'ateliers, musées interactifs et jeux de plein air adaptés aux familles.",
-      "used": false
+      "used": true
     },
     {
       "title": "Comment gérer son budget alimentation à l'étranger : astuces et calculs précis",
@@ -299,6 +299,66 @@
       "title": "Comment réduire les déchets plastiques pendant un road‑trip en van",
       "tag": "Éco‑voyage",
       "angle": "Solutions concrètes pour le ravitaillement, le nettoyage et le recyclage en déplacement.",
+      "used": false
+    },
+    {
+      "title": "Comment choisir le meilleur visa selon la destination",
+      "tag": "Pratique",
+      "angle": "Analyse des critères de sélection du visa, délais, coûts et astuces pour chaque région du monde.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi privilégier les hébergements chez l'habitant en Asie",
+      "tag": "Inspiration",
+      "angle": "Exploration des avantages culturels, économiques et sécuritaires des séjours chez l'habitant, avec exemples concrets.",
+      "used": false
+    },
+    {
+      "title": "10 astuces pour éviter les frais bancaires à l'étranger",
+      "tag": "Budget",
+      "angle": "Guide détaillé des cartes, comptes et stratégies pour réduire ou éliminer les commissions à l'étranger.",
+      "used": false
+    },
+    {
+      "title": "Comment organiser un trek de plusieurs jours en Patagonie",
+      "tag": "Astuces",
+      "angle": "Planification pas à pas du matériel, des étapes, des permis et des précautions météo pour un trek sécurisé.",
+      "used": false
+    },
+    {
+      "title": "Le guide complet pour voyager en train à grande vitesse en Asie",
+      "tag": "Organisation",
+      "angle": "Itinéraires, réservations, différences entre réseaux et conseils pour optimiser le confort et le timing.",
+      "used": false
+    },
+    {
+      "title": "Comment préparer un sac à dos de 40 L pour un circuit de deux semaines",
+      "tag": "Astuces",
+      "angle": "Sélection précise du matériel, techniques de pliage et répartition du poids pour un voyage sans contrainte.",
+      "used": false
+    },
+    {
+      "title": "Pourquoi intégrer des festivals locaux à votre itinéraire de voyage",
+      "tag": "Inspiration",
+      "angle": "Impact des festivals sur l'immersion culturelle, comment les repérer et les intégrer sans perturber le planning.",
+      "used": false
+    },
+    {
+      "title": "10 conseils pour voyager en toute sécurité pendant les manifestations",
+      "tag": "Bien-être",
+      "angle": "Méthodes de suivi, choix d'itinéraires alternatifs et précautions pratiques pour éviter les zones de trouble.",
+      "used": false
+    },
+    {
+      "title": "Comment gérer les différences de fuseau horaire lors d'un tour du monde",
+      "tag": "Bien-être",
+      "angle": "Stratégies d'adaptation du sommeil, alimentation et activité physique pour minimiser le jet‑lag.",
+      "used": false
+    },
+    {
+      "title": "Le guide pratique des applications météo hors ligne pour randonneurs",
+      "tag": "Éco‑voyage",
+      "angle": "Comparaison des applications, critères de précision, et conseils d'utilisation en zones sans réseau.",
       "used": false
     }
   ]
